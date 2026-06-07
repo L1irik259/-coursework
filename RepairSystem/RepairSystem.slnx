@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="RepairSystem.Admin/RepairSystem.Admin.csproj" />
+  <Project Path="RepairSystem.Core/RepairSystem.Core.csproj" />
+  <Project Path="RepairSystem.Web/RepairSystem.Web.csproj" />
+</Solution>

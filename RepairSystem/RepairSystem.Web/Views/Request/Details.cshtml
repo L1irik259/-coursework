@@ -1,0 +1,240 @@
+@using RepairSystem.Core.Models
+@model Request
+@{ ViewData["Title"] = "Заявка " + Model.Number; Layout = "_Layout"; }
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Заявка №@Model.Number</h5>
+                @{
+                    var badge = Model.StatusId == 1 ? "status-pending" : Model.StatusId == 2 ? "status-inprog" : "status-done";
+                }
+                <span class="badge @badge fs-6">@Model.Status.Name</span>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Оборудование</dt>
+                    <dd class="col-sm-8">@Model.Equipment.Name <small class="text-muted">(S/N: @Model.Equipment.SerialNumber)</small></dd>
+
+                    <dt class="col-sm-4">Тип неисправности</dt>
+                    <dd class="col-sm-8">@Model.FaultDescription</dd>
+
+                    <dt class="col-sm-4">Описание проблемы</dt>
+                    <dd class="col-sm-8">@Model.ProblemDescription</dd>
+
+                    <dt class="col-sm-4">Клиент</dt>
+                    <dd class="col-sm-8">@Model.Client.FullName</dd>
+
+                    <dt class="col-sm-4">Исполнитель</dt>
+                    <dd class="col-sm-8">@(Model.Executor?.FullName ?? "Не назначен")</dd>
+
+                    <dt class="col-sm-4">Менеджер</dt>
+                    <dd class="col-sm-8">@(Model.Manager?.FullName ?? "—")</dd>
+
+                    <dt class="col-sm-4">Создана</dt>
+                    <dd class="col-sm-8">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
+
+                    <dt class="col-sm-4">Дедлайн</dt>
+                    <dd class="col-sm-8">
+                        @(Model.Deadline?.ToString("dd.MM.yyyy") ?? "—")
+                        @if (Model.DeadlineExtended) { <span class="badge bg-warning text-dark ms-1">Продлён</span> }
+                    </dd>
+
+                    @if (Model.DeadlineExtended && Model.ExtensionAgreementNote != null)
+                    {
+                        <dt class="col-sm-4">Основание продления</dt>
+                        <dd class="col-sm-8">@Model.ExtensionAgreementNote</dd>
+                    }
+
+                    @if (Model.IsHelpRequested)
+                    {
+                        <dt class="col-sm-4">Запрос помощи</dt>
+                        <dd class="col-sm-8 text-danger">⚠ @Model.HelpRequestedAt?.ToString("dd.MM.yyyy HH:mm")</dd>
+                    }
+
+                    @if (Model.CompletedAt.HasValue)
+                    {
+                        <dt class="col-sm-4">Выполнено</dt>
+                        <dd class="col-sm-8">@Model.CompletedAt.Value.ToString("dd.MM.yyyy HH:mm")</dd>
+                    }
+                </dl>
+            </div>
+        </div>
+
+        @* Действия для исполнителя *@
+        @if (ViewBag.CurrentRole == "Исполнитель" && Model.ExecutorId == ViewBag.CurrentUserId)
+        {
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h6 class="card-title">Действия исполнителя</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        @foreach (var s in (List<RequestStatus>)ViewBag.Statuses)
+                        {
+                            if (s.RequestStatusId != Model.StatusId)
+                            {
+                                <form method="post" asp-action="UpdateStatus">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="requestId" value="@Model.RequestId" />
+                                    <input type="hidden" name="statusId" value="@s.RequestStatusId" />
+                                    <button class="btn btn-sm btn-outline-primary" type="submit">→ @s.Name</button>
+                                </form>
+                            }
+                        }
+                        @if (!Model.IsHelpRequested && Model.StatusId != 3)
+                        {
+                            <form method="post" asp-action="RequestHelp">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="requestId" value="@Model.RequestId" />
+                                <button class="btn btn-sm btn-warning" type="submit">⚠ Запросить помощь</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            @* Форма комментария *@
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h6>Добавить комментарий</h6>
+                    <form method="post" asp-action="AddComment">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="requestId" value="@Model.RequestId" />
+                        <textarea name="text" class="form-control mb-2" rows="2" placeholder="Введите комментарий..."></textarea>
+                        <button type="submit" class="btn btn-sm btn-primary">Добавить</button>
+                    </form>
+                </div>
+            </div>
+        }
+
+        @* Действия для менеджера *@
+        @if (ViewBag.CurrentRole == "Менеджер")
+        {
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h6 class="card-title">Действия менеджера</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        @if (Model.ExecutorId == null)
+                        {
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#assignModal">
+                                Назначить исполнителя
+                            </button>
+                        }
+                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#consultModal">
+                            Привлечь специалиста
+                        </button>
+                        <a asp-controller="Manager" asp-action="ExtendDeadline" asp-route-requestId="@Model.RequestId"
+                           class="btn btn-sm btn-outline-warning">Продлить срок</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @* Комментарии *@
+        @if (Model.Comments.Any())
+        {
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">Комментарии</div>
+                <div class="list-group list-group-flush">
+                    @foreach (var c in Model.Comments.OrderBy(c => c.CreatedAt))
+                    {
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <strong>@c.Author.FullName</strong>
+                                <small class="text-muted">@c.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+                            </div>
+                            <p class="mb-0 mt-1">@c.Text</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        @* Привлечённые консультанты *@
+        @if (Model.Consultants.Any())
+        {
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">Привлечённые специалисты</div>
+                <ul class="list-group list-group-flush">
+                    @foreach (var c in Model.Consultants)
+                    {
+                        <li class="list-group-item">@c.Specialist.FullName <small class="text-muted">с @c.AddedAt.ToString("dd.MM.yyyy")</small></li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+
+    @* QR код *@
+    <div class="col-md-4">
+        @if (Model.StatusId == 3 && ViewBag.QrFormUrl != null)
+        {
+            <div class="card shadow-sm text-center p-3">
+                <h6 class="mb-3">📊 Оцените качество работы</h6>
+                <img src="/QrCode/Generate" alt="QR-код для оценки" class="img-fluid mx-auto" style="max-width:200px" />
+                <p class="text-muted small mt-2">Отсканируйте QR-код для заполнения формы оценки</p>
+            </div>
+        }
+    </div>
+</div>
+
+@* Модальное окно: назначить исполнителя *@
+@if (ViewBag.CurrentRole == "Менеджер")
+{
+    <div class="modal fade" id="assignModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Назначить исполнителя</h5></div>
+                <form method="post" asp-controller="Manager" asp-action="AssignExecutor">
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <input type="hidden" name="requestId" value="@Model.RequestId" />
+                        <select name="executorId" class="form-select" id="executorSelect">
+                            <option value="">— Загрузка... —</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Назначить</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="consultModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Привлечь специалиста</h5></div>
+                <form method="post" asp-controller="Manager" asp-action="AttractSpecialist">
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <input type="hidden" name="requestId" value="@Model.RequestId" />
+                        <select name="specialistId" class="form-select" id="specialistSelect">
+                            <option value="">— Загрузка... —</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Привлечь</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('assignModal')?.addEventListener('show.bs.modal', () => {
+        fetch('/Manager/Executors').then(r => r.json()).then(data => {
+            const sel = document.getElementById('executorSelect');
+            sel.innerHTML = data.map(e => `<option value="${e.userId}">${e.fullName}</option>`).join('');
+        });
+    });
+    document.getElementById('consultModal')?.addEventListener('show.bs.modal', () => {
+        fetch('/Manager/Executors').then(r => r.json()).then(data => {
+            const sel = document.getElementById('specialistSelect');
+            sel.innerHTML = data.map(e => `<option value="${e.userId}">${e.fullName}</option>`).join('');
+        });
+    });
+    </script>
+}

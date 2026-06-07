@@ -1,0 +1,48 @@
+@using RepairSystem.Core.Models
+@{ ViewData["Title"] = "Новая заявка"; Layout = "_Layout"; }
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h4 class="mb-4">📝 Новая заявка на ремонт</h4>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        @foreach (var e in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        { <div>@e.ErrorMessage</div> }
+                    </div>
+                }
+                <form method="post" asp-action="Create">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label">Оборудование <span class="text-danger">*</span></label>
+                        <select name="equipmentId" class="form-select" required>
+                            <option value="">— Выберите оборудование —</option>
+                            @foreach (var e in (List<Equipment>)ViewBag.Equipment)
+                            {
+                                <option value="@e.EquipmentId">@e.Name (S/N: @e.SerialNumber)</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Тип неисправности <span class="text-danger">*</span></label>
+                        <input name="faultDescription" class="form-control" placeholder="Кратко: не включается, шум, перегрев..." required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Описание проблемы <span class="text-danger">*</span></label>
+                        <textarea name="problemDescription" class="form-control" rows="4" placeholder="Подробно опишите проблему..." required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Желаемый срок выполнения</label>
+                        <input name="deadline" type="date" class="form-control" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">Отправить заявку</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

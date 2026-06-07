@@ -1,0 +1,44 @@
+@{ ViewData["Title"] = "Регистрация"; Layout = "_Layout"; }
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h4 class="card-title text-center mb-4">Регистрация</h4>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        @foreach (var e in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        { <div>@e.ErrorMessage</div> }
+                    </div>
+                }
+                <form method="post" asp-action="Register">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label">ФИО</label>
+                        <input name="fullName" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input name="email" type="email" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Телефон</label>
+                        <input name="phone" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Пароль</label>
+                        <input name="password" type="password" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Повторите пароль</label>
+                        <input name="confirmPassword" type="password" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Зарегистрироваться</button>
+                </form>
+                <hr />
+                <p class="text-center mb-0">Уже есть аккаунт? <a asp-action="Login">Войти</a></p>
+            </div>
+        </div>
+    </div>
+</div>

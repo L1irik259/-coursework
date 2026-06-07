@@ -1,0 +1,26 @@
+@{ ViewData["Title"] = "Настройки QR"; Layout = "_Layout"; }
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="mb-4">⚙️ Настройка QR-кода</h5>
+                <p class="text-muted">Укажите ссылку на Google Form для оценки качества работы. Она будет показана клиенту после выполнения заявки.</p>
+                <form method="post" asp-action="QrForm">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label">URL формы обратной связи</label>
+                        <input name="url" type="url" class="form-control" value="@ViewBag.CurrentUrl" placeholder="https://forms.google.com/..." />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </form>
+                @if (!string.IsNullOrEmpty(ViewBag.CurrentUrl?.ToString()))
+                {
+                    <hr />
+                    <h6>Текущий QR-код:</h6>
+                    <img src="/QrCode/Generate" alt="QR" class="img-fluid" style="max-width:200px" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

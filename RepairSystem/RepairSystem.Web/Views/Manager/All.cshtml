@@ -1,0 +1,58 @@
+@using RepairSystem.Core.Models
+@model IEnumerable<Request>
+@{ ViewData["Title"] = "Все заявки"; Layout = "_Layout"; }
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>📋 Все заявки</h4>
+</div>
+
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-6">
+        <input name="search" class="form-control" placeholder="Поиск по номеру или типу неисправности" value="@ViewBag.CurrentSearch" />
+    </div>
+    <div class="col-md-3">
+        <select name="statusId" class="form-select">
+            <option value="">Все статусы</option>
+            @foreach (var s in (List<RequestStatus>)ViewBag.Statuses)
+            {
+                <option value="@s.RequestStatusId" selected="@(ViewBag.CurrentStatus?.ToString() == s.RequestStatusId.ToString())">@s.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-outline-secondary w-100">Найти</button>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-hover bg-white shadow-sm rounded">
+        <thead class="table-dark">
+            <tr>
+                <th>Номер</th>
+                <th>Клиент</th>
+                <th>Оборудование</th>
+                <th>Тип неисправности</th>
+                <th>Исполнитель</th>
+                <th>Статус</th>
+                <th>Дедлайн</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                var badge = r.StatusId == 1 ? "status-pending" : r.StatusId == 2 ? "status-inprog" : "status-done";
+                <tr class="@(r.IsHelpRequested ? "table-warning" : "")">
+                    <td><strong>@r.Number</strong> @if (r.IsHelpRequested) { <span class="badge bg-danger">Помощь!</span> }</td>
+                    <td>@r.Client.FullName</td>
+                    <td>@r.Equipment.Name</td>
+                    <td>@r.FaultDescription</td>
+                    <td>@(r.Executor?.FullName ?? "—")</td>
+                    <td><span class="badge @badge">@r.Status.Name</span></td>
+                    <td>@(r.Deadline?.ToString("dd.MM.yyyy") ?? "—")</td>
+                    <td><a asp-controller="Request" asp-action="Details" asp-route-id="@r.RequestId" class="btn btn-sm btn-outline-primary">Открыть</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
