@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FranchiseAggregator.Models
+namespace FranchiseAgregator.Models
 {
     public class Region
     {

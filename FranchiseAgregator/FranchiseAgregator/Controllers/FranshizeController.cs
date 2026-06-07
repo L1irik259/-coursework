@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-namespace FranchiseAggregator.Controllers
+namespace FranchiseAgregator.Controllers
 {
     public class FranchiseController : Controller
     {

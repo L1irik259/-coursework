@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FranchiseAggregator.Models
+namespace FranchiseAgregator.Models
 {
     public class News
     {

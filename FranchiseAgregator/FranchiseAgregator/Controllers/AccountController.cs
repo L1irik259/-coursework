@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 using System.Security.Claims;
 
-namespace FranchiseAggregator.Controllers
+namespace FranchiseAgregator.Controllers
 {
     public class AccountController : Controller
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FranchiseAggregator.Controllers
+namespace FranchiseAgregator.Controllers
 {
     [Authorize(Roles = "Администратор сайта,Администратор")]
     public class AdminController : Controller

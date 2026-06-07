@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace FranchiseAggregator.Controllers
+namespace FranchiseAgregator.Controllers
 {
     public class OrderController : Controller
     {
@@ -190,7 +190,7 @@ namespace FranchiseAggregator.Controllers
                 }
                 else
                 {
-                    var newFile = new FranchiseAggregator.Models.DbFile
+                    var newFile = new FranchiseAgregator.Models.DbFile
                     {
                         FileUri = documentUrl.Trim()
                     };

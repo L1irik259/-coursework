@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 
-namespace FranchiseAggregator.Models
+namespace FranchiseAgregator.Models
 {
     public class Order
     {

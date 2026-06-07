@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FranchiseAggregator.Controllers
+namespace FranchiseAgregator.Controllers
 {
     public class HomeController : Controller
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace FranchiseAggregator.Models 
+namespace FranchiseAgregator.Models 
 {
     public class ApplicationDbContext : DbContext
     {
@@ -37,7 +37,7 @@ namespace FranchiseAggregator.Models
         public DbSet<FranchiseTag> FranchiseTags { get; set; } = null!;
         public DbSet<PriceHistory> PriceHistories { get; set; } = null!;
         public DbSet<DbFile> Files { get; set; } = null!;
-        public DbSet<FranchiseAggregator.Models.Feedback> Feedbacks { get; set; }
+        public DbSet<FranchiseAgregator.Models.Feedback> Feedbacks { get; set; }
 
         public DbSet<FeedbackStatus> FeedbackStatuses { get; set; } = null!;
 

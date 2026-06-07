@@ -1,7 +1,7 @@
 using System.Text; 
 using Microsoft.AspNetCore.Authentication.Cookies; 
 using Microsoft.EntityFrameworkCore; 
-using FranchiseAggregator.Models; 
+using FranchiseAgregator.Models; 
 
 var builder = WebApplication.CreateBuilder(args);
 

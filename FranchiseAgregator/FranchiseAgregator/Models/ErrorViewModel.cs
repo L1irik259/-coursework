@@ -1,5 +1,5 @@
 
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 namespace FranchiseAgregator.Models
 {
     public class ErrorViewModel

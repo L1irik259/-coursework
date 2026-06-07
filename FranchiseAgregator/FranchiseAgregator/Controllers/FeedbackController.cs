@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FranchiseAggregator.Models;
+using FranchiseAgregator.Models;
 using System.Threading.Tasks;
 
-namespace FranchiseAggregator.Controllers
+namespace FranchiseAgregator.Controllers
 {
     public class FeedbackController : Controller
     {
