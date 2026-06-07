@@ -1,0 +1,487 @@
+﻿@model IEnumerable<FranchiseAggregator.Models.Users>
+@{
+    Layout = null;
+    ViewData["Title"] = "Управление пользователями";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+            :root {
+                --primary: #ff6b35;
+                --primary-dark: #e85d2a;
+                --primary-light: #ff8c61;
+                --dark: #2d3436;
+                --light: #f8f9fa;
+                --gray: #636e72;
+                --border: #dfe6e9;
+                --sidebar-width: 280px;
+                --success: #00b894;
+                --warning: #fdcb6e;
+                --danger: #d63031;
+                --info: #0984e3;
+            }
+        
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+        
+            body {
+                font-family: 'Inter', sans-serif;
+                background: #f5f6fa;
+                color: var(--dark);
+                line-height: 1.6;
+            }
+        
+            /* Sidebar */
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: var(--sidebar-width);
+                height: 100vh;
+                background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+                color: white;
+                padding: 2rem 0;
+                overflow-y: auto;
+                z-index: 1000;
+                box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            }
+        
+            .sidebar-brand {
+                font-size: 1.75rem;
+                font-weight: 900;
+                text-align: center;
+                margin-bottom: 3rem;
+                padding: 0 1.5rem;
+            }
+        
+                .sidebar-brand i {
+                    color: #ffd23f;
+                }
+        
+            .sidebar-menu {
+                list-style: none;
+                padding: 0 1rem;
+            }
+        
+                .sidebar-menu li {
+                    margin-bottom: 0.5rem;
+                }
+        
+                .sidebar-menu a {
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem 1.5rem;
+                    color: rgba(255,255,255,0.8);
+                    text-decoration: none;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                    font-weight: 600;
+                }
+        
+                    .sidebar-menu a:hover, .sidebar-menu a.active {
+                        background: rgba(255,255,255,0.2);
+                        color: white;
+                        transform: translateX(5px);
+                    }
+        
+                    .sidebar-menu a i {
+                        margin-right: 1rem;
+                        font-size: 1.25rem;
+                        width: 24px;
+                        text-align: center;
+                    }
+        
+            /* Main Content */
+            .main-content {
+                margin-left: var(--sidebar-width);
+                min-height: 100vh;
+                padding: 0;
+            }
+        
+            /* Header */
+            .page-header {
+                background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+                padding: 2.5rem 3rem;
+                color: white;
+                box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+            }
+        
+                .page-header h1 {
+                    font-size: 2.25rem;
+                    font-weight: 900;
+                    margin: 0;
+                }
+        
+            /* Content */
+            .content-section {
+                padding: 2rem;
+            }
+        
+            /* Alert */
+            .alert {
+                border-radius: 12px;
+                border: none;
+                padding: 1rem 1.5rem;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+        
+                .alert i {
+                    font-size: 1.25rem;
+                }
+        
+            .alert-success {
+                background: #d4edda;
+                color: #155724;
+            }
+        
+            .alert-danger {
+                background: #f8d7da;
+                color: #721c24;
+            }
+        
+            /* Card */
+            .card-custom {
+                background: white;
+                border-radius: 16px;
+                padding: 2rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                border: none;
+            }
+        
+            /* Table */
+            .table-container {
+                overflow-x: auto;
+            }
+        
+            .table-custom {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                margin: 0;
+            }
+        
+                .table-custom thead th {
+                    background: var(--light);
+                    color: var(--gray);
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    font-size: 0.75rem;
+                    letter-spacing: 0.5px;
+                    padding: 1rem 1.5rem;
+                    border: none;
+                    white-space: nowrap;
+                }
+        
+                    .table-custom thead th:first-child {
+                        border-top-left-radius: 12px;
+                    }
+        
+                    .table-custom thead th:last-child {
+                        border-top-right-radius: 12px;
+                    }
+        
+                .table-custom tbody tr {
+                    background: white;
+                    transition: all 0.2s ease;
+                }
+        
+                    .table-custom tbody tr:hover {
+                        background: #f8f9fa;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                    }
+        
+                .table-custom tbody td {
+                    padding: 1.25rem 1.5rem;
+                    border-top: 1px solid var(--border);
+                    vertical-align: middle;
+                    font-size: 0.95rem;
+                }
+        
+                .table-custom tbody tr:first-child td {
+                    border-top: none;
+                }
+        
+            /* User Info */
+            .user-name {
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 0.25rem;
+            }
+        
+            .user-email {
+                color: var(--gray);
+                font-size: 0.875rem;
+            }
+        
+            /* Badges */
+            .badge-custom {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+        
+            .badge-active {
+                background: rgba(0,184,148,0.15);
+                color: var(--success);
+            }
+        
+            .badge-blocked {
+                background: rgba(214,48,49,0.15);
+                color: var(--danger);
+            }
+        
+            .badge-inactive {
+                background: rgba(253,203,110,0.15);
+                color: #e17055;
+            }
+        
+            .badge-active::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: var(--success);
+                border-radius: 50%;
+                display: inline-block;
+            }
+        
+            .badge-blocked::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: var(--danger);
+                border-radius: 50%;
+                display: inline-block;
+            }
+        
+            /* Form Select */
+            .form-select-custom {
+                min-width: 180px;
+                padding: 0.625rem 2.5rem 0.625rem 1rem;
+                border: 2px solid var(--border);
+                border-radius: 10px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                background-color: white;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+        
+                .form-select-custom:hover {
+                    border-color: var(--primary-light);
+                }
+        
+                .form-select-custom:focus {
+                    border-color: var(--primary);
+                    box-shadow: 0 0 0 4px rgba(255,107,53,0.1);
+                    outline: none;
+                }
+        
+            /* Date */
+            .date-text {
+                color: var(--gray);
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+        
+            /* Responsive */
+            @@media (max-width: 992px) {
+                .sidebar {
+                    transform: translateX(-100%);
+                    transition: transform 0.3s ease;
+                }
+            
+                .main-content {
+                    margin-left: 0;
+                }
+            
+                .content-section {
+                    padding: 1rem;
+                }
+            }
+    </style>
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-rocket-takeoff-fill"></i> FranchiseHub
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="bi bi-house-door-fill"></i> Главная</a></li>
+            <li><a href="/Catalog"><i class="bi bi-grid-fill"></i> Каталог франшиз</a></li>
+            <li><a href="/Home/About"><i class="bi bi-info-circle"></i> О компании</a></li>
+            <li><a href="/Home/Contacts"><i class="bi bi-envelope"></i> Контакты</a></li>
+            <li><a href="/Home/News"><i class="bi bi-newspaper"></i> Новости</a></li>
+            <li><a href="/Home/Promotions"><i class="bi bi-percent"></i> Акции</a></li>
+            
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Личный кабинет</li>
+                <li><a href="/Account/Profile"><i class="bi bi-person"></i> Мой профиль</a></li>
+                <li><a href="/Order/Index"><i class="bi bi-card-heading"></i> Мои заявки</a></li>
+                <li><a href="/Favorites/Index"><i class="bi bi-heart"></i> Избранное</a></li>
+                
+                @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li><a href="/Order/Management"><i class="bi bi-list-check"></i> Все заявки</a></li>
+                }
+                
+                @if (User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Администрирование</li>
+                    <li><a href="/News/Index"><i class="bi bi-newspaper"></i> Управление новостями</a></li>
+                    <li><a href="/Admin/Users" class="active"><i class="bi bi-people"></i> Управление пользователями</a></li>
+                    <li><a href="/Admin/Feedbacks"><i class="bi bi-chat-dots"></i> Управление обратной связью</a></li>
+                    <li><a href="/Reviews/Manage"><i class="bi bi-star"></i> Управление отзывами</a></li>
+                }
+                
+                <li class="mt-4"><a href="/Account/Logout"><i class="bi bi-box-arrow-right"></i> Выход</a></li>
+            }
+            else
+            {
+                <li class="mt-4"><a href="/Account/Login"><i class="bi bi-box-arrow-in-right"></i> Войти</a></li>
+                <li><a href="/Account/Register"><i class="bi bi-person-plus"></i> Регистрация</a></li>
+            }
+        </ul>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="sidebar-user">
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+                    <div>
+                        <div class="fw-bold">@User.Identity?.Name</div>
+                        <small class="text-white-50">
+                            @if (User.IsInRole("Администратор"))
+                            {
+                                <text>Администратор</text>
+                            }
+                            else if (User.IsInRole("Администратор сайта"))
+                            {
+
+                                <text>Администратор сайта</text>
+                            }
+                            else if (User.IsInRole("Менеджер"))
+                            {
+
+                                <text>Менеджер</text>
+                            }
+                            else
+                            {
+
+                                <text>Пользователь</text>
+                            }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="page-header">
+            <h1><i class="bi bi-people-fill me-3"></i>Управление пользователями</h1>
+        </div>
+
+        <!-- Content -->
+        <section class="content-section">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success mb-4">
+                    <i class="bi bi-check-circle-fill"></i>
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger mb-4">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+
+            <div class="card-custom">
+                <div class="table-container">
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 250px;">Пользователь</th>
+                                <th style="min-width: 200px;">Роль</th>
+                                <th style="min-width: 180px;">Статус</th>
+                                <th style="min-width: 150px;">Дата регистрации</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="user-name">@user.FullName</div>
+                                        <div class="user-email">
+                                            <i class="bi bi-envelope me-1"></i>@user.Email<br>
+                                            <i class="bi bi-telephone me-1"></i>@user.Phone
+                                        </div>
+                                    </td>
+<td>
+    <span class="badge-custom" style="background: rgba(9,132,227,0.15); color: var(--info);">
+        <i class="bi bi-shield-fill"></i>
+        @user.Role?.Name
+    </span>
+</td>
+                                    <td>
+                                        <form asp-action="UpdateUserStatus" method="post" class="d-inline">
+                                            <input type="hidden" name="userId" value="@user.UserId" />
+                                            <select name="userStatusId" class="form-select form-select-custom" onchange="this.form.submit()">
+                                                @foreach (var status in ViewBag.UserStatuses as List<FranchiseAggregator.Models.UserStatus>)
+                                                {
+                                                    <option value="@status.UserStatusId" selected="@(status.UserStatusId == user.UserStatusId)">
+                                                        @status.Name
+                                                    </option>
+                                                }
+                                            </select>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <span class="date-text">
+                                            <i class="bi bi-calendar-event me-2"></i>
+                                            @user.RegisteredAt.ToString("dd.MM.yyyy")
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

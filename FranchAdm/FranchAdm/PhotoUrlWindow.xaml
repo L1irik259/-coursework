@@ -1,0 +1,37 @@
+﻿<Window x:Class="FranchAdm.PhotoUrlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Введите URL фото" 
+        Height="200" Width="600"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Введите URL изображения:" 
+                   FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+        <TextBox x:Name="txtUrl" Grid.Row="1" 
+                 Padding="10,8" 
+                 BorderBrush="#DFE6E9" BorderThickness="1"
+                 FontSize="14"
+                 MaxLength="100"
+                 VerticalContentAlignment="Top"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="False"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button Content="Отмена" Width="80" Padding="10,5"
+                    Click="BtnCancel_Click" Margin="0,0,10,0"/>
+            <Button Content="OK" Width="80" Padding="10,5"
+                    Background="#FF6B35" Foreground="White"
+                    Click="BtnOk_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

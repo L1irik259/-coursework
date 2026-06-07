@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FranchiseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Franchises" Relationship="Self.FK_Franchises_Categories_CategoryId" FromRole="Categories" ToRole="Franchises" />
+  </EntityType>
+  <EntityType Name="ContactMethod">
+    <Key>
+      <PropertyRef Name="ContactMethodId" />
+    </Key>
+    <Property Name="ContactMethodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_ContactMethods_ContactMethodId" FromRole="ContactMethods" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="FavoriteId" />
+    </Key>
+    <Property Name="FavoriteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddedAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="FranchiseId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Franchise" Relationship="Self.FK_Favorites_Franchises_FranchiseId" FromRole="Favorites" ToRole="Franchises" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Favorites_Users_UserId" FromRole="Favorites" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="FeedbackStatusId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FeedbackStatus" Relationship="Self.FK_Feedbacks_FeedbackStatuses_FeedbackStatusId" FromRole="Feedbacks" ToRole="FeedbackStatuses" />
+  </EntityType>
+  <EntityType Name="FeedbackStatus">
+    <Key>
+      <PropertyRef Name="FeedbackStatusId" />
+    </Key>
+    <Property Name="FeedbackStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedbacks_FeedbackStatuses_FeedbackStatusId" FromRole="FeedbackStatuses" ToRole="Feedbacks" />
+  </EntityType>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileUri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Files_FileId" FromRole="Files" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Franchiser">
+    <Key>
+      <PropertyRef Name="FranchiserId" />
+    </Key>
+    <Property Name="FranchiserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="INN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contacts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Franchises" Relationship="Self.FK_Franchises_Franchisers_FranchiserId" FromRole="Franchisers" ToRole="Franchises" />
+  </EntityType>
+  <EntityType Name="Franchise">
+    <Key>
+      <PropertyRef Name="FranchiseId" />
+    </Key>
+    <Property Name="FranchiseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PledgeAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvestmentAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PaybackPeriod" Type="Int32" Nullable="false" />
+    <Property Name="RoyaltyPercent" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="DiscountPercent" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="FinalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MinPhotoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="FranTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PremTypesId" Type="Int32" Nullable="false" />
+    <Property Name="FranStatusId" Type="Int32" Nullable="false" />
+    <Property Name="FranchiserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Franchises_Categories_CategoryId" FromRole="Franchises" ToRole="Categories" />
+    <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_Franchises_FranchiseId" FromRole="Franchises" ToRole="Favorites" />
+    <NavigationProperty Name="Franchiser" Relationship="Self.FK_Franchises_Franchisers_FranchiserId" FromRole="Franchises" ToRole="Franchisers" />
+    <NavigationProperty Name="FranStatus" Relationship="Self.FK_Franchises_FranStatuses_FranStatusId" FromRole="Franchises" ToRole="FranStatuses" />
+    <NavigationProperty Name="FranType" Relationship="Self.FK_Franchises_FranTypes_FranTypeId" FromRole="Franchises" ToRole="FranTypes" />
+    <NavigationProperty Name="PremTypes" Relationship="Self.FK_Franchises_PremTypeses_PremTypesId" FromRole="Franchises" ToRole="PremTypeses" />
+    <NavigationProperty Name="FranchiseTags" Relationship="Self.FK_FranchiseTags_Franchises_FranchiseId" FromRole="Franchises" ToRole="FranchiseTags" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Franchises_FranchiseId" FromRole="Franchises" ToRole="Orders" />
+    <NavigationProperty Name="PriceHistories" Relationship="Self.FK_PriceHistories_Franchises_FranchiseId" FromRole="Franchises" ToRole="PriceHistories" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Franchises_FranchiseId" FromRole="Franchises" ToRole="Reviews" />
+  </EntityType>
+  <EntityType Name="FranchiseTag">
+    <Key>
+      <PropertyRef Name="FranchiseTagId" />
+    </Key>
+    <Property Name="FranchiseTagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FranchiseId" Type="Int32" Nullable="false" />
+    <Property Name="TagId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Franchise" Relationship="Self.FK_FranchiseTags_Franchises_FranchiseId" FromRole="FranchiseTags" ToRole="Franchises" />
+    <NavigationProperty Name="Tag" Relationship="Self.FK_FranchiseTags_Tags_TagId" FromRole="FranchiseTags" ToRole="Tags" />
+  </EntityType>
+  <EntityType Name="FranStatus">
+    <Key>
+      <PropertyRef Name="FranStatusId" />
+    </Key>
+    <Property Name="FranStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Franchises" Relationship="Self.FK_Franchises_FranStatuses_FranStatusId" FromRole="FranStatuses" ToRole="Franchises" />
+  </EntityType>
+  <EntityType Name="FranType">
+    <Key>
+      <PropertyRef Name="FranTypeId" />
+    </Key>
+    <Property Name="FranTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Franchises" Relationship="Self.FK_Franchises_FranTypes_FranTypeId" FromRole="FranTypes" ToRole="Franchises" />
+  </EntityType>
+  <EntityType Name="ModerSt">
+    <Key>
+      <PropertyRef Name="ModerStId" />
+    </Key>
+    <Property Name="ModerStId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_ModerSts_ModerStId" FromRole="ModerSts" ToRole="Reviews" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="NewsStatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NewsStatus" Relationship="Self.FK_News_NewsStatuses_NewsStatusId" FromRole="News" ToRole="NewsStatuses" />
+  </EntityType>
+  <EntityType Name="NewsStatus">
+    <Key>
+      <PropertyRef Name="NewsStatusId" />
+    </Key>
+    <Property Name="NewsStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="News" Relationship="Self.FK_News_NewsStatuses_NewsStatusId" FromRole="NewsStatuses" ToRole="News" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="FranchiseId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" />
+    <Property Name="RegionId" Type="Int32" Nullable="false" />
+    <Property Name="ContactMethodId" Type="Int32" Nullable="false" />
+    <Property Name="UsersUserId" Type="Int32" />
+    <Property Name="FileId" Type="Int32" />
+    <NavigationProperty Name="ContactMethod" Relationship="Self.FK_Orders_ContactMethods_ContactMethodId" FromRole="Orders" ToRole="ContactMethods" />
+    <NavigationProperty Name="File" Relationship="Self.FK_Orders_Files_FileId" FromRole="Orders" ToRole="Files" />
+    <NavigationProperty Name="Franchise" Relationship="Self.FK_Orders_Franchises_FranchiseId" FromRole="Orders" ToRole="Franchises" />
+    <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Orders_OrderStatuses_OrderStatusId" FromRole="Orders" ToRole="OrderStatuses" />
+    <NavigationProperty Name="Region" Relationship="Self.FK_Orders_Regions_RegionId" FromRole="Orders" ToRole="Regions" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users_UserId" FromRole="Orders" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Orders_Users_UsersUserId" FromRole="Orders" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusId" />
+    </Key>
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_OrderStatuses_OrderStatusId" FromRole="OrderStatuses" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="PremTypes">
+    <Key>
+      <PropertyRef Name="PremTypesId" />
+    </Key>
+    <Property Name="PremTypesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MinArea" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="Requirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Franchises" Relationship="Self.FK_Franchises_PremTypeses_PremTypesId" FromRole="PremTypeses" ToRole="Franchises" />
+  </EntityType>
+  <EntityType Name="PriceHistory">
+    <Key>
+      <PropertyRef Name="PriceHistoryId" />
+    </Key>
+    <Property Name="PriceHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OldPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NewPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ChangeAd" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FranchiseId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Franchise" Relationship="Self.FK_PriceHistories_Franchises_FranchiseId" FromRole="PriceHistories" ToRole="Franchises" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionId" />
+    </Key>
+    <Property Name="RegionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegionCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Regions_RegionId" FromRole="Regions" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Name="ReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="FranchiseId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ModerStId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Franchise" Relationship="Self.FK_Reviews_Franchises_FranchiseId" FromRole="Reviews" ToRole="Franchises" />
+    <NavigationProperty Name="ModerSt" Relationship="Self.FK_Reviews_ModerSts_ModerStId" FromRole="Reviews" ToRole="ModerSts" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Reviews_Users_UserId" FromRole="Reviews" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles_RoleId" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FranchiseTags" Relationship="Self.FK_FranchiseTags_Tags_TagId" FromRole="Tags" ToRole="FranchiseTags" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegisteredAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastLogin" Type="DateTime" Precision="7" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="UserStatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_Users_UserId" FromRole="Users" ToRole="Favorites" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users_UserId" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Orders1" Relationship="Self.FK_Orders_Users_UsersUserId" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Users_UserId" FromRole="Users" ToRole="Reviews" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles_RoleId" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="UserStatus" Relationship="Self.FK_Users_UserStatuses_UserStatusId" FromRole="Users" ToRole="UserStatuses" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="UserStatusId" />
+    </Key>
+    <Property Name="UserStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserStatuses_UserStatusId" FromRole="UserStatuses" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Franchises_Categories_CategoryId">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Franchises">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ContactMethods_ContactMethodId">
+    <End Role="ContactMethods" Type="Self.ContactMethod" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactMethods">
+        <PropertyRef Name="ContactMethodId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ContactMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorites_Franchises_FranchiseId">
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Favorites" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Franchises">
+        <PropertyRef Name="FranchiseId" />
+      </Principal>
+      <Dependent Role="Favorites">
+        <PropertyRef Name="FranchiseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorites_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Favorites" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Favorites">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feedbacks_FeedbackStatuses_FeedbackStatusId">
+    <End Role="FeedbackStatuses" Type="Self.FeedbackStatus" Multiplicity="0..1" />
+    <End Role="Feedbacks" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedbackStatuses">
+        <PropertyRef Name="FeedbackStatusId" />
+      </Principal>
+      <Dependent Role="Feedbacks">
+        <PropertyRef Name="FeedbackStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Files_FileId">
+    <End Role="Files" Type="Self.File" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="FileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Franchises_Franchisers_FranchiserId">
+    <End Role="Franchisers" Type="Self.Franchiser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Franchisers">
+        <PropertyRef Name="FranchiserId" />
+      </Principal>
+      <Dependent Role="Franchises">
+        <PropertyRef Name="FranchiserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Franchises_FranStatuses_FranStatusId">
+    <End Role="FranStatuses" Type="Self.FranStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FranStatuses">
+        <PropertyRef Name="FranStatusId" />
+      </Principal>
+      <Dependent Role="Franchises">
+        <PropertyRef Name="FranStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Franchises_FranTypes_FranTypeId">
+    <End Role="FranTypes" Type="Self.FranType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FranTypes">
+        <PropertyRef Name="FranTypeId" />
+      </Principal>
+      <Dependent Role="Franchises">
+        <PropertyRef Name="FranTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Franchises_PremTypeses_PremTypesId">
+    <End Role="PremTypeses" Type="Self.PremTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PremTypeses">
+        <PropertyRef Name="PremTypesId" />
+      </Principal>
+      <Dependent Role="Franchises">
+        <PropertyRef Name="PremTypesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FranchiseTags_Franchises_FranchiseId">
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FranchiseTags" Type="Self.FranchiseTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Franchises">
+        <PropertyRef Name="FranchiseId" />
+      </Principal>
+      <Dependent Role="FranchiseTags">
+        <PropertyRef Name="FranchiseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Franchises_FranchiseId">
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Franchises">
+        <PropertyRef Name="FranchiseId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="FranchiseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PriceHistories_Franchises_FranchiseId">
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PriceHistories" Type="Self.PriceHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Franchises">
+        <PropertyRef Name="FranchiseId" />
+      </Principal>
+      <Dependent Role="PriceHistories">
+        <PropertyRef Name="FranchiseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviews_Franchises_FranchiseId">
+    <End Role="Franchises" Type="Self.Franchise" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Franchises">
+        <PropertyRef Name="FranchiseId" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="FranchiseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FranchiseTags_Tags_TagId">
+    <End Role="Tags" Type="Self.Tag" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FranchiseTags" Type="Self.FranchiseTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tags">
+        <PropertyRef Name="TagId" />
+      </Principal>
+      <Dependent Role="FranchiseTags">
+        <PropertyRef Name="TagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviews_ModerSts_ModerStId">
+    <End Role="ModerSts" Type="Self.ModerSt" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModerSts">
+        <PropertyRef Name="ModerStId" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="ModerStId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_NewsStatuses_NewsStatusId">
+    <End Role="NewsStatuses" Type="Self.NewsStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsStatuses">
+        <PropertyRef Name="NewsStatusId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="NewsStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OrderStatuses_OrderStatusId">
+    <End Role="OrderStatuses" Type="Self.OrderStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatuses">
+        <PropertyRef Name="OrderStatusId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Regions_RegionId">
+    <End Role="Regions" Type="Self.Region" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="RegionId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="RegionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users_UsersUserId">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UsersUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviews_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles_RoleId">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserStatuses_UserStatusId">
+    <End Role="UserStatuses" Type="Self.UserStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatuses">
+        <PropertyRef Name="UserStatusId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FranchiseDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="ContactMethods" EntityType="Self.ContactMethod" />
+    <EntitySet Name="Favorites" EntityType="Self.Favorite" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="FeedbackStatuses" EntityType="Self.FeedbackStatus" />
+    <EntitySet Name="Files" EntityType="Self.File" />
+    <EntitySet Name="Franchisers" EntityType="Self.Franchiser" />
+    <EntitySet Name="Franchises" EntityType="Self.Franchise" />
+    <EntitySet Name="FranchiseTags" EntityType="Self.FranchiseTag" />
+    <EntitySet Name="FranStatuses" EntityType="Self.FranStatus" />
+    <EntitySet Name="FranTypes" EntityType="Self.FranType" />
+    <EntitySet Name="ModerSts" EntityType="Self.ModerSt" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="NewsStatuses" EntityType="Self.NewsStatus" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderStatuses" EntityType="Self.OrderStatus" />
+    <EntitySet Name="PremTypeses" EntityType="Self.PremTypes" />
+    <EntitySet Name="PriceHistories" EntityType="Self.PriceHistory" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <EntitySet Name="Reviews" EntityType="Self.Review" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tags" EntityType="Self.Tag" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserStatuses" EntityType="Self.UserStatus" />
+    <AssociationSet Name="FK_Franchises_Categories_CategoryId" Association="Self.FK_Franchises_Categories_CategoryId">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Franchises" EntitySet="Franchises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ContactMethods_ContactMethodId" Association="Self.FK_Orders_ContactMethods_ContactMethodId">
+      <End Role="ContactMethods" EntitySet="ContactMethods" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorites_Franchises_FranchiseId" Association="Self.FK_Favorites_Franchises_FranchiseId">
+      <End Role="Franchises" EntitySet="Franchises" />
+      <End Role="Favorites" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorites_Users_UserId" Association="Self.FK_Favorites_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Favorites" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedbacks_FeedbackStatuses_FeedbackStatusId" Association="Self.FK_Feedbacks_FeedbackStatuses_FeedbackStatusId">
+      <End Role="FeedbackStatuses" EntitySet="FeedbackStatuses" />
+      <End Role="Feedbacks" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Files_FileId" Association="Self.FK_Orders_Files_FileId">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Franchises_Franchisers_FranchiserId" Association="Self.FK_Franchises_Franchisers_FranchiserId">
+      <End Role="Franchisers" EntitySet="Franchisers" />
+      <End Role="Franchises" EntitySet="Franchises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Franchises_FranStatuses_FranStatusId" Association="Self.FK_Franchises_FranStatuses_FranStatusId">
+      <End Role="FranStatuses" EntitySet="FranStatuses" />
+      <End Role="Franchises" EntitySet="Franchises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Franchises_FranTypes_FranTypeId" Association="Self.FK_Franchises_FranTypes_FranTypeId">
+      <End Role="FranTypes" EntitySet="FranTypes" />
+      <End Role="Franchises" EntitySet="Franchises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Franchises_PremTypeses_PremTypesId" Association="Self.FK_Franchises_PremTypeses_PremTypesId">
+      <End Role="PremTypeses" EntitySet="PremTypeses" />
+      <End Role="Franchises" EntitySet="Franchises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FranchiseTags_Franchises_FranchiseId" Association="Self.FK_FranchiseTags_Franchises_FranchiseId">
+      <End Role="Franchises" EntitySet="Franchises" />
+      <End Role="FranchiseTags" EntitySet="FranchiseTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Franchises_FranchiseId" Association="Self.FK_Orders_Franchises_FranchiseId">
+      <End Role="Franchises" EntitySet="Franchises" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PriceHistories_Franchises_FranchiseId" Association="Self.FK_PriceHistories_Franchises_FranchiseId">
+      <End Role="Franchises" EntitySet="Franchises" />
+      <End Role="PriceHistories" EntitySet="PriceHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviews_Franchises_FranchiseId" Association="Self.FK_Reviews_Franchises_FranchiseId">
+      <End Role="Franchises" EntitySet="Franchises" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FranchiseTags_Tags_TagId" Association="Self.FK_FranchiseTags_Tags_TagId">
+      <End Role="Tags" EntitySet="Tags" />
+      <End Role="FranchiseTags" EntitySet="FranchiseTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviews_ModerSts_ModerStId" Association="Self.FK_Reviews_ModerSts_ModerStId">
+      <End Role="ModerSts" EntitySet="ModerSts" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_NewsStatuses_NewsStatusId" Association="Self.FK_News_NewsStatuses_NewsStatusId">
+      <End Role="NewsStatuses" EntitySet="NewsStatuses" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OrderStatuses_OrderStatusId" Association="Self.FK_Orders_OrderStatuses_OrderStatusId">
+      <End Role="OrderStatuses" EntitySet="OrderStatuses" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Regions_RegionId" Association="Self.FK_Orders_Regions_RegionId">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users_UserId" Association="Self.FK_Orders_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users_UsersUserId" Association="Self.FK_Orders_Users_UsersUserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviews_Users_UserId" Association="Self.FK_Reviews_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles_RoleId" Association="Self.FK_Users_Roles_RoleId">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserStatuses_UserStatusId" Association="Self.FK_Users_UserStatuses_UserStatusId">
+      <End Role="UserStatuses" EntitySet="UserStatuses" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

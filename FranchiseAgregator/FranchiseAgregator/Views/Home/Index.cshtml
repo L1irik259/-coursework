@@ -1,0 +1,359 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Главная - FranchiseHub";
+    var popularFranchises = ViewBag.PopularFranchises as IEnumerable<FranchiseAggregator.Models.Franchise>;
+    var news = ViewBag.News as IEnumerable<FranchiseAggregator.Models.News>;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --primary-dark: #e85d2a;
+            --primary-light: #ff8c61;
+            --secondary: #f7c59f;
+            --accent: #ffd23f;
+            --dark: #2d3436;
+            --light: #fdfdfd;
+            --gray: #636e72;
+            --border: #dfe6e9;
+            --sidebar-width: 280px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+
+        .sidebar {
+            position: fixed; top: 0; left: 0; width: var(--sidebar-width); height: 100vh;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white; padding: 2rem 0; overflow-y: auto; z-index: 1000;
+        }
+        .sidebar-brand { font-size: 1.75rem; font-weight: 900; text-align: center; margin-bottom: 3rem; padding: 0 1.5rem; }
+        .sidebar-brand i { color: var(--accent); }
+        .sidebar-menu { list-style: none; padding: 0 1rem; }
+        .sidebar-menu li { margin-bottom: 0.5rem; }
+        .sidebar-menu a {
+            display: flex; align-items: center; padding: 1rem 1.5rem;
+            color: rgba(255,255,255,0.8); text-decoration: none; border-radius: 12px;
+            transition: all 0.3s ease; font-weight: 600;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: rgba(255,255,255,0.2); color: white; transform: translateX(5px);
+        }
+        .sidebar-menu a i { margin-right: 1rem; font-size: 1.25rem; width: 24px; text-align: center; }
+        
+        .sidebar-user { margin-top: auto; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
+        .sidebar-user-info { display: flex; align-items: center; margin-bottom: 1rem; }
+        .sidebar-user-avatar {
+            width: 40px; height: 40px; border-radius: 50%; background: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            margin-right: 1rem; font-weight: bold; color: var(--primary);
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width); min-height: 100vh;
+            width: calc(100vw - var(--sidebar-width)); padding: 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 4rem;
+        }
+        .hero-title { font-size: 4.5rem; font-weight: 900; margin-bottom: 2rem; }
+        .hero-subtitle { font-size: 1.5rem; margin-bottom: 3rem; opacity: 0.95; }
+        .btn-hero {
+            background: white; color: var(--primary); border: none;
+            padding: 1.25rem 3rem; font-size: 1.2rem; font-weight: 700;
+            border-radius: 50px; transition: all 0.3s ease;
+        }
+        .btn-hero:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+
+        .section { padding: 6rem 4rem; width: 100%; }
+        .section-title { font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; text-align: center; }
+        .section-subtitle { font-size: 1.25rem; color: var(--gray); margin-bottom: 5rem; text-align: center; }
+
+        .franchise-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            transition: all 0.4s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--border); height: 100%;
+        }
+        .franchise-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(255,107,53,0.25); }
+        
+        .card-img-wrapper {
+            position: relative; height: 280px; overflow: hidden;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .card-body { padding: 2.5rem; }
+        .card-title { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.25rem; }
+        .card-text { font-size: 1.1rem; color: var(--gray); margin-bottom: 1rem; }
+        
+        .price-new { color: var(--primary); font-weight: 900; font-size: 2.5rem; margin-bottom: 1rem; }
+        
+        .btn-custom {
+            background: var(--primary); color: white; border: none;
+            padding: 1.25rem 2rem; font-weight: 800; border-radius: 15px;
+            transition: all 0.3s ease; text-align: center;
+        }
+        .btn-custom:hover { background: var(--primary-dark); transform: translateY(-3px); }
+        
+        .btn-outline-primary {
+            border: 3px solid var(--primary); color: var(--primary);
+            background: transparent; padding: 1.25rem 2rem;
+            font-weight: 700; border-radius: 15px; transition: all 0.3s ease;
+        }
+        .btn-outline-primary:hover { background: var(--primary); color: white; }
+
+        .feature-card {
+            background: white; border-radius: 25px; padding: 4rem 3rem;
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .feature-icon { font-size: 5rem; margin-bottom: 2.5rem; color: var(--primary); }
+
+        footer { background: var(--dark); color: white; padding: 5rem 4rem; margin-top: 6rem; }
+
+        .row { margin-left: 0 !important; margin-right: 0 !important; }
+        .col, [class*="col-"] { padding-left: 15px !important; padding-right: 15px !important; }
+    </style>
+</head>
+<body>
+
+    
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-rocket-takeoff-fill"></i> FranchiseHub
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/" class="active"><i class="bi bi-house-door-fill"></i> Главная</a></li>
+            <li><a href="/Catalog"><i class="bi bi-grid-fill"></i> Каталог франшиз</a></li>
+            <li><a href="/Home/About"><i class="bi bi-info-circle"></i> О компании</a></li>
+            <li><a href="/Home/Contacts"><i class="bi bi-envelope"></i> Контакты</a></li>
+            <li><a href="/Home/News"><i class="bi bi-newspaper"></i> Новости</a></li>
+            <li><a href="/Home/Promotions"><i class="bi bi-percent"></i> Акции</a></li>
+            
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Личный кабинет</li>
+                <li><a href="/Account/Profile"><i class="bi bi-person"></i> Мой профиль</a></li>
+                <li><a href="/Order/Index"><i class="bi bi-card-heading"></i> Мои заявки</a></li>
+                <li><a href="/Favorites/Index"><i class="bi bi-heart"></i> Избранное</a></li>
+                
+                @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li><a href="/Order/Management"><i class="bi bi-list-check"></i> Все заявки</a></li>
+                }
+                
+                @if (User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Администрирование</li>
+                    <li><a href="/News/Index"><i class="bi bi-newspaper"></i> Управление новостями</a></li>
+                    <li><a href="/Admin/Users"><i class="bi bi-people"></i> Управление пользователями</a></li>
+                    <li><a href="/Admin/Feedbacks"><i class="bi bi-chat-dots"></i> Управление обратной связью</a></li>
+                    <li><a href="/Reviews/Manage"><i class="bi bi-star"></i> Управление отзывами</a></li>
+                }
+                
+                <li class="mt-4"><a href="/Account/Logout"><i class="bi bi-box-arrow-right"></i> Выход</a></li>
+            }
+            else
+            {
+                <li class="mt-4"><a href="/Account/Login"><i class="bi bi-box-arrow-in-right"></i> Войти</a></li>
+                <li><a href="/Account/Register"><i class="bi bi-person-plus"></i> Регистрация</a></li>
+            }
+        </ul>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="sidebar-user">
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+                    <div>
+                        <div class="fw-bold">@User.Identity?.Name</div>
+                        <small class="text-white-50">
+                            @if (User.IsInRole("Администратор")) { <text>Администратор</text> }
+                            else if (User.IsInRole("Администратор сайта")) { <text>Администратор сайта</text> }
+                            else if (User.IsInRole("Менеджер")) { <text>Менеджер</text> }
+                            else { <text>Пользователь</text> }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </aside>
+
+    <div class="main-content">
+        
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Найди свою идеальную франшизу</h1>
+                <p class="hero-subtitle">Тысячи проверенных франшиз от ведущих брендов России</p>
+                <a href="/Catalog" class="btn btn-hero">
+                    Смотреть каталог <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2 class="section-title">Популярные франшизы</h2>
+            <p class="section-subtitle">Самые востребованные предложения этого месяца</p>
+            
+            @if (popularFranchises != null && popularFranchises.Any())
+            {
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach (var item in popularFranchises)
+                    {
+                        <div class="col">
+                            <div class="franchise-card">
+                                <div class="card-img-wrapper">
+                                    <img src="@(string.IsNullOrEmpty(item.MinPhotoUrl) ? "https://placehold.co/600x400/f7c59f/ff6b35?text=No+Image" : item.MinPhotoUrl)" alt="@item.Name">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.Name</h5>
+                                    @if (item.Franchiser != null)
+                                    {
+                                        <p class="card-text">💼 @item.Franchiser.Name</p>
+                                    }
+                                    @if (item.Category != null)
+                                    {
+                                        <p class="card-text">🎯 @item.Category.Name</p>
+                                    }
+                                    <div class="price-new">@item.FinalPrice.ToString("N0") ₽</div>
+                                    <div class="card-actions d-grid gap-2">
+                                        <a asp-controller="Franchise" asp-action="Index" asp-route-id="@item.FranchiseId" class="btn btn-outline-primary">
+                                            <i class="bi bi-eye-fill me-1"></i>Подробнее
+                                        </a>
+                                        @if (User.Identity?.IsAuthenticated == true)
+                                        {
+                                            <a asp-controller="Favorites" asp-action="Add" asp-route-id="@item.FranchiseId" class="btn btn-custom">
+                                                <i class="bi bi-heart"></i> В избранное
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <p class="text-muted">Пока нет популярных франшиз</p>
+                </div>
+            }
+            
+            <div class="text-center mt-5">
+                <a href="/Catalog" class="btn btn-custom btn-lg">Смотреть все франшизы</a>
+            </div>
+        </section>
+
+        
+        <section class="section" style="background: #fff5f0;">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-subtitle">Мы создали лучшие условия для вашего успеха</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                        <h3 class="h4 fw-bold mb-3">Проверенные франшизы</h3>
+                        <p class="text-muted">Только надежные и проверенные франшизы</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3 class="h4 fw-bold mb-3">Высокая доходность</h3>
+                        <p class="text-muted">Франшизы с доказанной рентабельностью</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-headset"></i></div>
+                        <h3 class="h4 fw-bold mb-3">Полная поддержка</h3>
+                        <p class="text-muted">Комплексное сопровождение</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        @if (news != null && news.Any())
+        {
+            <section class="section">
+                <h2 class="section-title">Последние новости</h2>
+                <p class="section-subtitle">Будьте в курсе последних событий</p>
+                
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach (var newsItem in news)
+                    {
+                        <div class="col">
+                            <div class="franchise-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@newsItem.Title</h5>
+                                    <p class="text-muted mb-4">
+                                        @(newsItem.Text?.Length > 150 ? newsItem.Text.Substring(0, 150) + "..." : newsItem.Text)
+                                    </p>
+                                    <a href="/Home/News" class="btn btn-outline-primary">Читать далее</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        }
+
+        
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-rocket-takeoff-fill me-2"></i>FranchiseHub</h4>
+                        <p class="text-white-50">Ваш надежный партнер в мире франчайзинга</p>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <h5 class="fw-bold mb-3">Навигация</h5>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="/" class="text-white-50 text-decoration-none">Главная</a>
+                            <a href="/Catalog" class="text-white-50 text-decoration-none">Каталог</a>
+                            <a href="/Home/About" class="text-white-50 text-decoration-none">О нас</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <h5 class="fw-bold mb-3">Информация</h5>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="/Home/News" class="text-white-50 text-decoration-none">Новости</a>
+                            <a href="/Home/Promotions" class="text-white-50 text-decoration-none">Акции</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5 class="fw-bold mb-3">Контакты</h5>
+                        <div class="d-flex flex-column gap-2 text-white-50">
+                            <div><i class="bi bi-geo-alt me-2"></i>Москва, ул. Примерная, 123</div>
+                            <div><i class="bi bi-telephone me-2"></i>+7 (495) 123-45-67</div>
+                            <div><i class="bi bi-envelope me-2"></i>info@franchisehub.ru</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+                <div class="text-center text-white-50">&copy; 2024 FranchiseHub</div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

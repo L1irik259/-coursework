@@ -1,0 +1,73 @@
+﻿<Window x:Class="FranchAdm.FranchiserEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Франчайзер" 
+        Height="500" Width="600"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <!-- Название -->
+            <TextBlock Text="Название *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtName" 
+                     Padding="10,8" 
+                     BorderBrush="#DFE6E9" BorderThickness="1"
+                     FontSize="14"
+                     MaxLength="200"
+                     PreviewTextInput="TxtName_PreviewTextInput"
+                     Margin="0,0,0,15"/>
+
+            <!-- ИНН -->
+            <TextBlock Text="ИНН" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtInn" 
+                     Padding="10,8" 
+                     BorderBrush="#DFE6E9" BorderThickness="1"
+                     FontSize="14"
+                     MaxLength="12"
+                     PreviewTextInput="TxtInn_PreviewTextInput"
+                     Margin="0,0,0,15" TextChanged="txtInn_TextChanged"/>
+            <TextBlock Text="Только цифры (10 или 12 знаков)" 
+                       Foreground="Gray" FontSize="11" Margin="0,-10,0,15"/>
+
+            <!-- Сайт -->
+            <TextBlock Text="Сайт" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtWebsite" 
+                     Padding="10,8" 
+                     BorderBrush="#DFE6E9" BorderThickness="1"
+                     FontSize="14"
+                     MaxLength="100"
+                     Margin="0,0,0,15"/>
+
+            <!-- Контакты -->
+            <TextBlock Text="Контактная информация" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtContacts" 
+                     Padding="10,8" 
+                     BorderBrush="#DFE6E9" BorderThickness="1"
+                     FontSize="14"
+                     Height="100"
+                     MaxLength="100"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     PreviewTextInput="TxtContacts_PreviewTextInput"/>
+            <TextBlock Text="Телефон в формате +7 (XXX) XXX-XX-XX" 
+                       Foreground="Gray" FontSize="11" Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Отмена" Width="80" Padding="10,5"
+                    Click="BtnCancel_Click" Margin="0,0,10,0"/>
+            <Button Content="💾 Сохранить" Width="100" Padding="10,5"
+                    Background="#FF6B35" Foreground="White"
+                    Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

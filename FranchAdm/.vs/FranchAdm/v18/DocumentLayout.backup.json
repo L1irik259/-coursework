@@ -1,0 +1,574 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\windows\\source\\repos\\FranchAdm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\userspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\userspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\usereditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\usereditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\tagpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\tagpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\tageditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\tageditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\regionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\regionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\regioneditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\regioneditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\pricehistorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\pricehistorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\premtypepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\premtypepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\premtypeeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\premtypeeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\photourlwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\photourlwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\orderstatuswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\orderstatuswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\orderstatuspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\orderstatuspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\orderstatuseditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\orderstatuseditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\orderlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\orderlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\frantypepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\frantypepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\frantypeeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\frantypeeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franstatuspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franstatuspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franstatuseditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franstatuseditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franshiselistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franshiselistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franchiserpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franchiserpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franchisereditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franchisereditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franchisereditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franchisereditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franchiseeditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franchiseeditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franchiseeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franchiseeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\contactmethodpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\contactmethodpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\conactmethodeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\conactmethodeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\categorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\categorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\categoryeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\categoryeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\categoryeditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\categoryeditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\franshiselistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\franshiselistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|c:\\users\\windows\\source\\repos\\franchadm\\franchadm\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2688A3E-AE6B-4FC4-AB6B-1D32A5D4DA12}|FranchAdm\\FranchAdm.csproj|solutionrelative:franchadm\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\UsersPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\UsersPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\UsersPage.xaml",
+              "RelativeToolTip": "FranchAdm\\UsersPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:43:58.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\UserEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\UserEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\UserEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\UserEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:43:26.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TagPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\TagPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\TagPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\TagPage.xaml",
+              "RelativeToolTip": "FranchAdm\\TagPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:43:13.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TagEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\TagEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\TagEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\TagEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\TagEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:42:42.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegionPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\RegionPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\RegionPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\RegionPage.xaml",
+              "RelativeToolTip": "FranchAdm\\RegionPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:42:29.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegionEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\RegionEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\RegionEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\RegionEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\RegionEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:42:17.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PriceHistoryPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PriceHistoryPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\PriceHistoryPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PriceHistoryPage.xaml",
+              "RelativeToolTip": "FranchAdm\\PriceHistoryPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:42:07.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PremTypePage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PremTypePage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\PremTypePage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PremTypePage.xaml",
+              "RelativeToolTip": "FranchAdm\\PremTypePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:41:54.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PremTypeEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PremTypeEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\PremTypeEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PremTypeEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\PremTypeEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:41:30.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PhotoUrlWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PhotoUrlWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\PhotoUrlWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\PhotoUrlWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\PhotoUrlWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:41:20.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OrderStatusWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderStatusWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\OrderStatusWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderStatusWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\OrderStatusWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:41:13.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderStatusPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderStatusPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\OrderStatusPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderStatusPage.xaml",
+              "RelativeToolTip": "FranchAdm\\OrderStatusPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:41:01.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OrderStatusEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderStatusEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\OrderStatusEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderStatusEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\OrderStatusEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:40:55.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OrderListPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderListPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\OrderListPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\OrderListPage.xaml",
+              "RelativeToolTip": "FranchAdm\\OrderListPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:40:34.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\LoginWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\LoginWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:39:55.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FranTypePage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranTypePage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranTypePage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranTypePage.xaml",
+              "RelativeToolTip": "FranchAdm\\FranTypePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:39:42.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FranTypeEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranTypeEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranTypeEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranTypeEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\FranTypeEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:39:27.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FranStatusPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranStatusPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranStatusPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranStatusPage.xaml",
+              "RelativeToolTip": "FranchAdm\\FranStatusPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:39:13.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FranStatusEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranStatusEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranStatusEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranStatusEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\FranStatusEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:39:05.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\MainWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:16:05.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FranchiserEditWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiserEditWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FranchAdm\\FranchiserEditWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiserEditWindow.xaml.cs",
+              "RelativeToolTip": "FranchAdm\\FranchiserEditWindow.xaml.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAowFgBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T19:32:58.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FranchiserEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiserEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranchiserEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiserEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\FranchiserEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:28:58.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ContactMethodPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\ContactMethodPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\ContactMethodPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\ContactMethodPage.xaml",
+              "RelativeToolTip": "FranchAdm\\ContactMethodPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:28:27.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FranchiserPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiserPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranchiserPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiserPage.xaml",
+              "RelativeToolTip": "FranchAdm\\FranchiserPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:17:46.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "FranshiseListPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranshiseListPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranshiseListPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranshiseListPage.xaml",
+              "RelativeToolTip": "FranchAdm\\FranshiseListPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:17:53.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ConactMethodEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\ConactMethodEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\ConactMethodEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\ConactMethodEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\ConactMethodEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:27:28.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CategoryPage.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\CategoryPage.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\CategoryPage.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\CategoryPage.xaml",
+              "RelativeToolTip": "FranchAdm\\CategoryPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:27:46.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FranchiseEditWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiseEditWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FranchAdm\\FranchiseEditWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiseEditWindow.xaml.cs",
+              "RelativeToolTip": "FranchAdm\\FranchiseEditWindow.xaml.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAwwMgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T19:24:13.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CategoryEditWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\CategoryEditWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FranchAdm\\CategoryEditWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\CategoryEditWindow.xaml.cs",
+              "RelativeToolTip": "FranchAdm\\CategoryEditWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T19:27:11.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FranchAdm\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\MainWindow.xaml.cs",
+              "RelativeToolTip": "FranchAdm\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T19:16:11.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CategoryEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\CategoryEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\CategoryEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\CategoryEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\CategoryEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:12:30.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "FranshiseListPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranshiseListPage.xaml.cs",
+              "RelativeDocumentMoniker": "FranchAdm\\FranshiseListPage.xaml.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranshiseListPage.xaml.cs",
+              "RelativeToolTip": "FranchAdm\\FranshiseListPage.xaml.cs",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAowNcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T19:18:00.222Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "27af12f8-655f-4881-b09e-d43cf4096218",
+        "Display": 0,
+        "X": 34,
+        "Y": 68,
+        "Width": 1274,
+        "Height": 885,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FranchiseEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiseEditWindow.xaml",
+              "RelativeDocumentMoniker": "FranchAdm\\FranchiseEditWindow.xaml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchAdm\\FranchAdm\\FranchiseEditWindow.xaml",
+              "RelativeToolTip": "FranchAdm\\FranchiseEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T19:24:08.079Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

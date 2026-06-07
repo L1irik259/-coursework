@@ -1,0 +1,953 @@
+﻿@model IEnumerable<FranchiseAggregator.Models.Franchise>
+@{
+    Layout = null;
+    ViewData["Title"] = "Каталог франшиз - FranchiseHub";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --primary-dark: #e85d2a;
+            --primary-light: #ff8c61;
+            --secondary: #f7c59f;
+            --accent: #ffd23f;
+            --dark: #2d3436;
+            --light: #fdfdfd;
+            --gray: #636e72;
+            --border: #dfe6e9;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Боковое меню */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-brand {
+            font-size: 1.75rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1.5rem;
+        }
+
+            .sidebar-brand i {
+                color: var(--accent);
+            }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+            .sidebar-menu li {
+                margin-bottom: 0.5rem;
+            }
+
+            .sidebar-menu a {
+                display: flex;
+                align-items: center;
+                padding: 1rem 1.5rem;
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                font-weight: 600;
+            }
+
+                .sidebar-menu a:hover, .sidebar-menu a.active {
+                    background: rgba(255, 255, 255, 0.2);
+                    color: white;
+                    transform: translateX(5px);
+                }
+
+                .sidebar-menu a i {
+                    margin-right: 1rem;
+                    font-size: 1.25rem;
+                    width: 24px;
+                    text-align: center;
+                }
+
+        .sidebar-user {
+            margin-top: auto;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar-user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Основной контент */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            width: calc(100vw - var(--sidebar-width));
+            padding: 0;
+            position: relative;
+        }
+
+        /* Заголовок каталога */
+        .catalog-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 4rem;
+            margin: 0;
+            width: 100%;
+        }
+
+        .catalog-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .catalog-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+
+        /* Секция фильтров */
+        .filters-section {
+            background: white;
+            padding: 2rem 4rem;
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+        }
+
+        .filter-form {
+            display: flex;
+            gap: 1.5rem;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            display: block;
+        }
+
+        .filter-input, .filter-select {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .filter-input:focus, .filter-select:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+            }
+
+        .btn-filter {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .btn-filter:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+            }
+
+        .btn-reset {
+            background: transparent;
+            color: var(--gray);
+            border: 2px solid var(--border);
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .btn-reset:hover {
+                border-color: var(--primary);
+                color: var(--primary);
+            }
+
+        /* Основная секция каталога */
+        .catalog-section {
+            padding: 6rem 4rem;
+            width: 100%;
+        }
+
+        .catalog-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .catalog-count {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* КАРТОЧКИ ФРАНШИЗ С ТЕГАМИ И СКИДКАМИ */
+        .franchise-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+            .franchise-card:hover {
+                transform: translateY(-15px);
+                box-shadow: 0 25px 50px rgba(255, 107, 53, 0.25);
+                border-color: var(--primary);
+            }
+
+            .franchise-card.premium {
+                border: 3px solid var(--accent);
+                box-shadow: 0 15px 35px rgba(255, 210, 63, 0.35);
+            }
+
+                .franchise-card.premium:hover {
+                    box-shadow: 0 30px 60px rgba(255, 210, 63, 0.45);
+                    transform: translateY(-18px);
+                }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+
+            .card-img-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+            }
+
+        .franchise-card:hover .card-img-wrapper img {
+            transform: scale(1.15);
+        }
+
+        .badge-premium {
+            background: linear-gradient(135deg, var(--accent), #f7c59f);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 0.7rem 1.3rem;
+            border-radius: 30px;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 2;
+            box-shadow: 0 6px 15px rgba(255, 210, 63, 0.5);
+        }
+
+        .badge-discount {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+        }
+
+        .card-body {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .card-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+            .card-text i {
+                margin-right: 1rem;
+                color: var(--primary);
+                font-size: 1.3rem;
+            }
+
+        /* Теги */
+        .card-tags {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag-badge {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .card-price-section {
+            padding-top: 2rem;
+            border-top: 3px solid var(--border);
+            margin-top: auto;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-new {
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .price-savings {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .btn-custom {
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-weight: 800;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            padding: 1.25rem 2rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+            .btn-custom:hover {
+                background: var(--primary-dark);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(255, 107, 53, 0.45);
+                color: white;
+            }
+
+        .btn-outline-primary {
+            border: 3px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            padding: 1.25rem 2rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+            .btn-outline-primary:hover {
+                background: var(--primary);
+                color: white;
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(255, 107, 53, 0.35);
+            }
+
+        /* Пагинация */
+        .pagination-section {
+            padding: 3rem 4rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .pagination {
+            display: inline-flex;
+            gap: 0.5rem;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+            height: 45px;
+            padding: 0 1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--gray);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+            .page-link:hover {
+                border-color: var(--primary);
+                color: var(--primary);
+                transform: translateY(-2px);
+            }
+
+            .page-link.active {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: white;
+            }
+
+            .page-link.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+        /* Пустое состояние */
+        .empty-state {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .empty-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .empty-text {
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        /* Убираем любые возможные отступы от Bootstrap */
+        .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .col, [class*="col-"] {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+
+        .container-fluid {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-rocket-takeoff-fill"></i> FranchiseHub
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="bi bi-house-door-fill"></i> Главная</a></li>
+            <li><a href="/Catalog" class="active"><i class="bi bi-grid-fill"></i> Каталог франшиз</a></li>
+            <li><a href="/Home/About"><i class="bi bi-info-circle"></i> О компании</a></li>
+            <li><a href="/Home/Contacts"><i class="bi bi-envelope"></i> Контакты</a></li>
+            <li><a href="/Home/News"><i class="bi bi-newspaper"></i> Новости</a></li>
+            <li><a href="/Home/Promotions"><i class="bi bi-percent"></i> Акции</a></li>
+            
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Личный кабинет</li>
+                <li><a href="/Account/Profile"><i class="bi bi-person"></i> Мой профиль</a></li>
+                <li><a href="/Order/Index"><i class="bi bi-card-heading"></i> Мои заявки</a></li>
+                <li><a href="/Favorites/Index"><i class="bi bi-heart"></i> Избранное</a></li>
+                
+                @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li><a href="/Order/Management"><i class="bi bi-list-check"></i> Все заявки</a></li>
+                }
+                
+                @if (User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Администрирование</li>
+                    <li><a href="/News/Index"><i class="bi bi-newspaper"></i> Управление новостями</a></li>
+                    <li><a href="/Admin/Users"><i class="bi bi-people"></i> Управление пользователями</a></li>
+                    <li><a href="/Admin/Feedbacks"><i class="bi bi-chat-dots"></i> Управление обратной связью</a></li>
+                    <li><a href="/Reviews/Manage"><i class="bi bi-star"></i> Управление отзывами</a></li>
+                }
+                
+                <li class="mt-4"><a href="/Account/Logout"><i class="bi bi-box-arrow-right"></i> Выход</a></li>
+            }
+            else
+            {
+                <li class="mt-4"><a href="/Account/Login"><i class="bi bi-box-arrow-in-right"></i> Войти</a></li>
+                <li><a href="/Account/Register"><i class="bi bi-person-plus"></i> Регистрация</a></li>
+            }
+        </ul>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="sidebar-user">
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+                    <div>
+                        <div class="fw-bold">@User.Identity?.Name</div>
+                        <small class="text-white-50">
+                            @if (User.IsInRole("Администратор"))
+                            {
+                                <text>Администратор</text>
+                            }
+                            else if (User.IsInRole("Администратор сайта"))
+                            {
+
+                                <text>Администратор сайта</text>
+                            }
+                            else if (User.IsInRole("Менеджер"))
+                            {
+
+                                <text>Менеджер</text>
+                            }
+                            else
+                            {
+
+                                <text>Пользователь</text>
+                            }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </aside>
+
+    <!-- Основной контент -->
+    <div class="main-content">
+        <!-- Заголовок каталога -->
+        <section class="catalog-header">
+            <h1 class="catalog-title">Каталог франшиз</h1>
+            <p class="catalog-subtitle">Найди идеальную франшизу для своего бизнеса</p>
+        </section>
+
+        <!-- Секция фильтров -->
+        <section class="filters-section">
+            <form asp-action="Index" method="get" class="filter-form">
+                <!-- Поиск -->
+                <div class="filter-group">
+                    <label class="filter-label">Поиск</label>
+                    <input type="text" name="search" class="filter-input"
+                           placeholder="Название франшизы..."
+                           value="@ViewBag.CurrentSearch" maxlength="100">
+                </div>
+
+                <!-- Категория - ИСПРАВЛЕНО -->
+                <div class="filter-group">
+                    <label class="filter-label">Категория</label>
+                    <select name="categoryId" class="filter-select">
+                        <option value="">Все категории</option>
+                        @if (ViewBag.Categories != null)
+                        {
+                            foreach (var cat in ViewBag.Categories)
+                            {
+                                // Безопасная проверка с явным приведением типа
+                                var currentCatId = ViewBag.CurrentCategoryId as int?;
+                                if (currentCatId.HasValue && currentCatId.Value == cat.CategoryId)
+                                {
+                                    <option value="@cat.CategoryId" selected>@cat.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@cat.CategoryId">@cat.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <!-- Тип франшизы - ИСПРАВЛЕНО -->
+                <div class="filter-group">
+                    <label class="filter-label">Тип франшизы</label>
+                    <select name="typeId" class="filter-select">
+                        <option value="">Все типы</option>
+                        @if (ViewBag.Types != null)
+                        {
+                            foreach (var type in ViewBag.Types)
+                            {
+                                // Безопасная проверка с явным приведением типа
+                                var currentTypeId = ViewBag.CurrentTypeId as int?;
+                                if (currentTypeId.HasValue && currentTypeId.Value == type.FranTypeId)
+                                {
+                                    <option value="@type.FranTypeId" selected>@type.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@type.FranTypeId">@type.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <!-- Сортировка - ИСПРАВЛЕНО -->
+                <div class="filter-group">
+                    <label class="filter-label">Сортировка</label>
+                    <select name="sort" class="filter-select">
+                        @{
+                            var sortOptions = new Dictionary<string, string>
+                    {
+                        { "", "По дате добавления" },
+                        { "price_asc", "Цена: по возрастанию" },
+                        { "price_desc", "Цена: по убыванию" },
+                        { "name_asc", "По названию А-Я" },
+                        { "name_desc", "По названию Я-А" }
+                    };
+                        }
+                        @foreach (var option in sortOptions)
+                        {
+                            // Безопасная проверка для строки
+                            var currentSort = ViewBag.CurrentSort as string;
+                            if (!string.IsNullOrEmpty(currentSort) && currentSort == option.Key)
+                            {
+                                <option value="@option.Key" selected>@option.Value</option>
+                            }
+                            else
+                            {
+                                <option value="@option.Key">@option.Value</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <!-- Кнопки -->
+                <button type="submit" class="btn-filter">
+                    <i class="bi bi-search me-2"></i>Применить
+                </button>
+                <a asp-action="Index" class="btn-reset">
+                    <i class="bi bi-arrow-counterclockwise me-2"></i>Сбросить
+                </a>
+            </form>
+        </section>
+
+        <!-- Основная секция каталога -->
+        <section class="catalog-section">
+            <div class="catalog-info">
+                <p class="catalog-count">
+                    Найдено: <strong>@ViewBag.TotalCount</strong> франшиз
+                    @if (ViewBag.TotalPages > 1)
+                    {
+                        <span class="text-muted"> (страница @ViewBag.CurrentPage из @ViewBag.TotalPages)</span>
+                    }
+                </p>
+            </div>
+
+            @if (Model != null && Model.Any())
+            {
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach (var item in Model)
+                    {
+                        // Расчет цены со скидкой
+                        bool hasDiscount = item.DiscountPercent.HasValue && item.DiscountPercent > 0 && item.DiscountPercent < 100;
+                        decimal oldPrice = 0;
+                        decimal savings = 0;
+                        
+                        if (hasDiscount)
+                        {
+                            oldPrice = item.FinalPrice / (1 - (item.DiscountPercent.Value / 100m));
+                            savings = oldPrice - item.FinalPrice;
+                        }
+
+                        string cardClass = (item.FinalPrice > 1000) ? "franchise-card premium" : "franchise-card";
+
+                        <div class="col">
+                            <div class="@cardClass">
+                                <div class="card-img-wrapper">
+                                    @if (!string.IsNullOrEmpty(item.MinPhotoUrl))
+                                    {
+                                        <img src="@item.MinPhotoUrl"
+                                             alt="@item.Name"
+                                             onerror="this.src='https://placehold.co/600x400/f7c59f/ff6b35?text=No+Image';">
+                                    }
+                                    else
+                                    {
+                                        <img src="https://placehold.co/600x400/f7c59f/ff6b35?text=Нет+фото"
+                                             alt="Нет фото">
+                                    }
+                                    
+                                    @if (item.FinalPrice > 1000)
+                                    {
+                                        <span class="badge badge-premium">
+                                            <i class="bi bi-star-fill me-1"></i>Премиум
+                                        </span>
+                                    }
+                                    
+                                    @if (hasDiscount)
+                                    {
+                                        <span class="badge badge-discount">
+                                            -@item.DiscountPercent%
+                                        </span>
+                                    }
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.Name</h5>
+                                    <div class="card-info">
+                                        @if (item.Franchiser != null)
+                                        {
+                                            <p class="card-text">
+                                                💼 @item.Franchiser.Name
+                                            </p>
+                                        }
+                                        @if (item.Category != null)
+                                        {
+                                            <p class="card-text">
+                                                🎯 @item.Category.Name
+                                            </p>
+                                        }
+                                    </div>
+
+                                    <!-- Теги -->
+                                    @if (item.FranchiseTags != null && item.FranchiseTags.Any())
+                                    {
+                                        <div class="card-tags">
+                                            @foreach (var tag in item.FranchiseTags.Take(3))
+                                            {
+                                                if (tag.Tag != null)
+                                                {
+                                                    <span class="tag-badge" style="background-color: @(tag.Tag.Color ?? "#6c757d");">
+                                                        @tag.Tag.Name
+                                                    </span>
+                                                }
+                                            }
+                                            @if (item.FranchiseTags.Count > 3)
+                                            {
+                                                <span class="tag-badge" style="background-color: #6c757d;">
+                                                    +@(item.FranchiseTags.Count - 3)
+                                                </span>
+                                            }
+                                        </div>
+                                    }
+
+                                    <div class="card-price-section">
+                                        @if (hasDiscount)
+                                        {
+                                            <div class="price-old">@oldPrice.ToString("N0") ₽</div>
+                                            <div class="price-new">@item.FinalPrice.ToString("N0") ₽</div>
+                                            <div class="price-savings">Экономия: @savings.ToString("N0") ₽</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="price-new">@item.FinalPrice.ToString("N0") ₽</div>
+                                        }
+                                        
+                                        <div class="card-actions">
+                                            <a asp-controller="Franchise" asp-action="Index" asp-route-id="@item.FranchiseId"
+                                                   class="btn btn-outline-primary">
+                                                <i class="bi bi-eye-fill me-1"></i>Подробнее
+                                            </a>
+                                            
+                                            @if (User.Identity?.IsAuthenticated == true)
+                                            {
+                                                <!-- ИЗМЕНЕНО: Контроллер Favorate вместо Cart -->
+                                                <a asp-controller="Favorites" asp-action="Add" asp-route-id="@item.FranchiseId"
+                                                       class="btn btn-custom">
+                                                    <i class="bi bi-heart"></i> В избранное
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="Account" asp-action="Register"
+                                                       class="btn btn-custom">
+                                                    <i class="bi bi-headset me-1"></i>Связаться
+                                                </a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Пагинация -->
+                @if (ViewBag.TotalPages > 1)
+                {
+                    <div class="pagination-section">
+                        <nav>
+                            <ul class="pagination">
+                                @* Предыдущая страница *@
+                                @if (ViewBag.CurrentPage > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1, search = ViewBag.CurrentSearch, categoryId = ViewBag.CurrentCategoryId, typeId = ViewBag.CurrentTypeId, sort = ViewBag.CurrentSort })">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled">
+                                        <span class="page-link">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </span>
+                                    </li>
+                                }
+
+                                @* Номера страниц *@
+                                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                {
+                                    @if (i == 1 || i == ViewBag.TotalPages || (i >= ViewBag.CurrentPage - 2 && i <= ViewBag.CurrentPage + 2))
+                                    {
+                                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                            <a class="page-link" href="@Url.Action("Index", new { page = i, search = ViewBag.CurrentSearch, categoryId = ViewBag.CurrentCategoryId, typeId = ViewBag.CurrentTypeId, sort = ViewBag.CurrentSort })">
+                                                @i
+                                            </a>
+                                        </li>
+                                    }
+                                    else if (i == ViewBag.CurrentPage - 3 || i == ViewBag.CurrentPage + 3)
+                                    {
+                                        <li class="page-item disabled">
+                                            <span class="page-link">...</span>
+                                        </li>
+                                    }
+                                }
+
+                                @* Следующая страница *@
+                                @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1, search = ViewBag.CurrentSearch, categoryId = ViewBag.CurrentCategoryId, typeId = ViewBag.CurrentTypeId, sort = ViewBag.CurrentSort })">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled">
+                                        <span class="page-link">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </span>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                }
+            }
+            else
+            {
+                <!-- Пустое состояние -->
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <h3 class="empty-title">Ничего не найдено 😔</h3>
+                    <p class="empty-text">Попробуйте изменить параметры поиска или сбросить фильтры</p>
+                    <a asp-action="Index" class="btn btn-custom btn-lg">
+                        <i class="bi bi-arrow-counterclockwise me-2"></i>Сбросить все фильтры
+                    </a>
+                </div>
+            }
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

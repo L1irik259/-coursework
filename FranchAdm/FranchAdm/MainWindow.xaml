@@ -1,0 +1,183 @@
+﻿<Window x:Class="FranchAdm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FranchiseHub - Управление магазином" 
+        Height="650" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Background="#F3F4F6"
+        FontFamily="Segoe UI">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Левое меню (260px) -->
+            <ColumnDefinition Width="260"/>
+            <!-- Основная область контента -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border Grid.Column="0" Background="#FF6B35">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="0,30,0,30" HorizontalAlignment="Center">
+                    <TextBlock Text="🚀 FranchiseHub" 
+                               Foreground="White" FontSize="22" FontWeight="Bold"/>
+                    <TextBlock x:Name="lblUserRole" 
+                               Text="Загрузка..." 
+                               Foreground="#FFD23F" FontSize="12" 
+                               HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,0,10,0">
+
+                    <Button x:Name="btnProducts" 
+                            Click="BtnProducts_Click" 
+                            Style="{StaticResource MenuButtonStyle}" 
+                            Content="📦 Управление товарами" 
+                            Tag="Products" Margin="0,5"/>
+
+                    <Button x:Name="btnOrders" 
+                            Click="BtnOrders_Click" 
+                            Style="{StaticResource MenuButtonStyle}" 
+                            Content="🛒 Управление заказами" 
+                            Tag="Orders" Margin="0,5"/>
+                    <!-- История цен -->
+                    <Button x:Name="btnPriceHistory" 
+        Click="BtnPriceHistory_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="📊 История цен" 
+        Tag="PriceHistory" Margin="0,2"/>
+                    <!-- Управление пользователями (только Админ) -->
+                    <Button x:Name="btnUsers" 
+        Click="BtnUsers_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="👥 Пользователи" 
+        Tag="Users" Margin="0,2"/>
+
+                    <!-- Разделитель -->
+                    <Separator Background="White" Opacity="0.3" Margin="0,20,0,10"/>
+
+                    <!-- Заголовок справочников -->
+                    <TextBlock Text="СПРАВОЧНИКИ" 
+           Foreground="White" Opacity="0.6" 
+           Margin="10,0,0,10" FontSize="11"/>
+
+                    <!-- Категории -->
+                    <Button x:Name="btnCategories" 
+        Click="BtnCategories_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="📂 Категории" 
+        Tag="Categories" Margin="0,2"/>
+
+                    <!-- Франчайзеры -->
+                    <Button x:Name="btnFranchisers" 
+        Click="BtnFranchisers_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="🏭 Франчайзеры" 
+        Tag="Franchisers" Margin="0,2"/>
+
+                    <!-- Типы франшиз -->
+                    <Button x:Name="btnFranTypes" 
+        Click="BtnFranTypes_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="📋 Типы франшиз" 
+        Tag="FranTypes" Margin="0,2"/>
+
+                    <!-- Статусы франшиз -->
+                    <Button x:Name="btnFranStatuses" 
+        Click="BtnFranStatuses_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="📊 Статусы франшиз" 
+        Tag="FranStatuses" Margin="0,2"/>
+
+                    <!-- Типы помещений -->
+                    <Button x:Name="btnPremTypes" 
+        Click="BtnPremTypes_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="🏢 Типы помещений" 
+        Tag="PremTypes" Margin="0,2"/>
+
+                    <!-- Теги -->
+                    <Button x:Name="btnTags" 
+        Click="BtnTags_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="🏷️ Теги" 
+        Tag="Tags" Margin="0,2"/>
+
+                    <!-- Регионы -->
+                    <Button x:Name="btnRegions" 
+        Click="BtnRegions_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content=" Регионы" 
+        Tag="Regions" Margin="0,2"/>
+
+                    <!-- Способы связи -->
+                    <Button x:Name="btnContactMethods" 
+        Click="BtnContactMethods_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="📞 Способы связи" 
+        Tag="ContactMethods" Margin="0,2"/>
+
+                    <!-- Статусы заказов -->
+                    <Button x:Name="btnOrderStatuses" 
+        Click="BtnOrderStatuses_Click" 
+        Style="{StaticResource MenuButtonStyle}" 
+        Content="📝 Статусы заказов" 
+        Tag="OrderStatuses" Margin="0,2"/>
+
+                </StackPanel>
+
+                <!-- Кнопка выхода (внизу) -->
+                <Button DockPanel.Dock="Bottom" 
+                        Click="BtnLogout_Click" 
+                        Content="🚪 Выйти" 
+                        Background="#E85D2A" Foreground="White" 
+                        BorderThickness="0" Height="45" 
+                        FontWeight="SemiBold" Cursor="Hand" 
+                        Margin="15,0,15,15" FontSize="14">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#D63031"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+            </DockPanel>
+        </Border>
+
+        <!-- === ОБЛАСТЬ КОНТЕНТА === -->
+        <Border Grid.Column="1" Background="White" Margin="0">
+            <Grid>
+                <!-- Заголовок страницы -->
+                <Border Background="White" BorderBrush="#DFE6E9" BorderThickness="0,0,0,1" Padding="20,15">
+                    <TextBlock x:Name="lblPageTitle" 
+                               Text="Главная" 
+                               FontSize="24" FontWeight="Bold" 
+                               Foreground="#2D3436"/>
+                </Border>
+
+                <!-- Область для динамической подгрузки страниц -->
+                <ContentControl x:Name="ContentArea" 
+                                Margin="0,65,0,0"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69b76d234c524eed9ecb066bc9599af2" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="FranchiseDBModel.C__EFMigrationsHistory" Width="1.5" PointX="10.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Category" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.ContactMethod" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Favorite" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Feedback" Width="1.5" PointX="13" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.FeedbackStatus" Width="1.5" PointX="10.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.File" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Franchiser" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Franchise" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.FranchiseTag" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.FranStatus" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.FranType" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.ModerSt" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.News" Width="1.5" PointX="11" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.NewsStatus" Width="1.5" PointX="8.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Order" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.OrderStatus" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.PremTypes" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.PriceHistory" Width="1.5" PointX="5.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Region" Width="1.5" PointX="6" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Review" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Role" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.sysdiagram" Width="1.5" PointX="10.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.Tag" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.User" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FranchiseDBModel.UserStatus" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Franchises_Categories_CategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_ContactMethods_ContactMethodId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Favorites_Franchises_FranchiseId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Favorites_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Feedbacks_FeedbackStatuses_FeedbackStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_Files_FileId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Franchises_Franchisers_FranchiserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Franchises_FranStatuses_FranStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Franchises_FranTypes_FranTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Franchises_PremTypeses_PremTypesId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_FranchiseTags_Franchises_FranchiseId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_Franchises_FranchiseId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_PriceHistories_Franchises_FranchiseId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Reviews_Franchises_FranchiseId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_FranchiseTags_Tags_TagId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Reviews_ModerSts_ModerStId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_News_NewsStatuses_NewsStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_OrderStatuses_OrderStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_Regions_RegionId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Orders_Users_UsersUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Reviews_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Users_Roles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="FranchiseDBModel.FK_Users_UserStatuses_UserStatusId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

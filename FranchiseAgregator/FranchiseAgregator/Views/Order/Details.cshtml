@@ -1,0 +1,331 @@
+﻿@model FranchiseAggregator.Models.Order
+@{
+    Layout = null;
+    ViewData["Title"] = "Заявка #" + Model.OrderId;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --primary: #ff6b35; --primary-dark: #e85d2a; --secondary: #f7c59f; --accent: #ffd23f; --dark: #2d3436; --light: #fdfdfd; --gray: #636e72; --border: #dfe6e9; --sidebar-width: 280px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+
+        .sidebar { position: fixed; top: 0; left: 0; width: var(--sidebar-width); height: 100vh; background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem 0; overflow-y: auto; z-index: 1000; box-shadow: 4px 0 15px rgba(0,0,0,0.1); }
+        .sidebar-brand { font-size: 1.75rem; font-weight: 900; text-align: center; margin-bottom: 3rem; padding: 0 1.5rem; }
+        .sidebar-brand i { color: var(--accent); }
+        .sidebar-menu { list-style: none; padding: 0 1rem; position: relative; left: -5px; }
+        .sidebar-menu li { margin-bottom: 0.5rem; }
+        .sidebar-menu a { display: flex; align-items: center; padding: 1rem 1.5rem; color: rgba(255,255,255,0.8); text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { background: rgba(255,255,255,0.2); color: white; transform: translateX(5px); }
+        .sidebar-menu a i { margin-right: 1rem; font-size: 1.25rem; width: 24px; text-align: center; }
+        
+        .main-content { margin-left: var(--sidebar-width); min-height: 100vh; width: calc(100vw - var(--sidebar-width)); padding: 0; position: relative; }
+        .page-header-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 2rem 4rem; text-align: center; color: white; }
+        .page-header-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
+
+        .details-section { padding: 4rem 4rem; width: 100%; }
+        .card-custom { background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 1px solid var(--border); margin-bottom: 2rem; }
+        
+        .info-label { font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 0.5rem; }
+        .info-value { font-size: 1.1rem; font-weight: 500; color: var(--dark); }
+        
+        .status-badge { padding: 8px 16px; border-radius: 20px; font-size: 1rem; font-weight: 700; display: inline-block; }
+        .status-new { background: #e3f2fd; color: #1565c0; }
+        .status-pending { background: #fff3e0; color: #ef6c00; }
+        .status-approved { background: #e8f5e9; color: #2e7d32; }
+        .status-rejected { background: #ffebee; color: #c62828; }
+        
+        .btn-back { background: var(--gray); color: white; border: none; padding: 0.75rem 2rem; border-radius: 15px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .btn-back:hover { background: var(--dark); color: white; }
+
+        .form-label { font-weight: 600; margin-bottom: 0.5rem; color: var(--dark); }
+        .form-control { padding: 0.75rem 1rem; border-radius: 10px; border: 2px solid var(--border); }
+        .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255,107,53,0.1); }
+        
+        .btn-save { background: var(--primary); color: white; border: none; padding: 0.75rem 2rem; border-radius: 15px; font-weight: 600; transition: all 0.3s; }
+        .btn-save:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        
+        .btn-danger-custom { background: #dc3545; color: white; border: none; padding: 0.5rem 1rem; border-radius: 10px; font-weight: 600; }
+        .btn-danger-custom:hover { background: #c82333; color: white; }
+
+        .alert-success { background: #d1e7dd; border-left: 4px solid #198754; color: #0f5132; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+        .alert-danger { background: #f8d7da; border-left: 4px solid #dc3545; color: #842029; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+
+        .row { margin-left: 0 !important; margin-right: 0 !important; }
+        .col, [class*="col-"] { padding-left: 15px !important; padding-right: 15px !important; }
+    </style>
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-rocket-takeoff-fill"></i> FranchiseHub
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="bi bi-house-door-fill"></i> Главная</a></li>
+            <li><a href="/Catalog"><i class="bi bi-grid-fill"></i> Каталог франшиз</a></li>
+            <li><a href="/Home/About"><i class="bi bi-info-circle"></i> О компании</a></li>
+            <li><a href="/Home/Contacts"><i class="bi bi-envelope"></i> Контакты</a></li>
+            <li><a href="/Home/News"><i class="bi bi-newspaper"></i> Новости</a></li>
+            <li><a href="/Home/Promotions"><i class="bi bi-percent"></i> Акции</a></li>
+            
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Личный кабинет</li>
+                <li><a href="/Account/Profile"><i class="bi bi-person"></i> Мой профиль</a></li>
+                <li><a href="/Order/Index" class="active"><i class="bi bi-card-heading"></i> Мои заявки</a></li>
+                <li><a href="/Favorites/Index"><i class="bi bi-heart"></i> Избранное</a></li>
+                
+                @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li><a href="/Order/Management"><i class="bi bi-list-check"></i> Все заявки</a></li>
+                }
+                
+                @if (User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Администрирование</li>
+                    <li><a href="/News/Index"><i class="bi bi-newspaper"></i> Управление новостями</a></li>
+                    <li><a href="/Admin/Users"><i class="bi bi-people"></i> Управление пользователями</a></li>
+                    <li><a href="/Admin/Feedbacks"><i class="bi bi-chat-dots"></i> Управление обратной связью</a></li>
+                    <li><a href="/Reviews/Manage"><i class="bi bi-star"></i> Управление отзывами</a></li>
+                }
+                
+                <li class="mt-4"><a href="/Account/Logout"><i class="bi bi-box-arrow-right"></i> Выход</a></li>
+            }
+            else
+            {
+                <li class="mt-4"><a href="/Account/Login"><i class="bi bi-box-arrow-in-right"></i> Войти</a></li>
+                <li><a href="/Account/Register"><i class="bi bi-person-plus"></i> Регистрация</a></li>
+            }
+        </ul>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="sidebar-user">
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+                    <div>
+                        <div class="fw-bold">@User.Identity?.Name</div>
+                        <small class="text-white-50">
+                            @if (User.IsInRole("Администратор")) { <text>Администратор</text> }
+                            else if (User.IsInRole("Администратор сайта")) { <text>Администратор сайта</text> }
+                            else if (User.IsInRole("Менеджер")) { <text>Менеджер</text> }
+                            else { <text>Пользователь</text> }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </aside>
+
+    <div class="main-content">
+        <div class="page-header-hero">
+            <h1>Заявка #@Model.OrderId</h1>
+        </div>
+
+        <section class="details-section container-fluid">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    <i class="bi bi-check-circle-fill me-2"></i>@TempData["SuccessMessage"]
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>@TempData["ErrorMessage"]
+                </div>
+            }
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">Детали заявки</h2>
+                <a href="@(User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор") ? "/Order/Management" : "/Order/Index")" class="btn-back">
+                    <i class="bi bi-arrow-left"></i> @(User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор") ? "К управлению" : "К списку")
+                </a>
+            </div>
+
+            <div class="row g-4">
+                <!-- ЛЕВАЯ КОЛОНКА -->
+                <div class="col-lg-5">
+                    <div class="card-custom h-100">
+                        <h4 class="mb-4 fw-bold"><i class="bi bi-file-earmark-text text-primary me-2"></i>Параметры заявки</h4>
+                        
+                        <div class="mb-4">
+                            <div class="info-label">Дата создания</div>
+                            <div class="info-value">@Model.CreatedAt.ToString("dd MMMM yyyy в HH:mm")</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="info-label">Текущий статус</div>
+                            <div class="info-value">
+                                @{
+                                    var statusName = Model.OrderStatus?.Name ?? "Новая";
+                                    var statusClass = "status-new";
+                                    if(statusName.Contains("Работа", StringComparison.OrdinalIgnoreCase) || statusName.Contains("Обработка", StringComparison.OrdinalIgnoreCase)) 
+                                        statusClass = "status-pending";
+                                    else if(statusName.Contains("Одобрено", StringComparison.OrdinalIgnoreCase)) 
+                                        statusClass = "status-approved";
+                                    else if(statusName.Contains("Отказ", StringComparison.OrdinalIgnoreCase)) 
+                                        statusClass = "status-rejected";
+                                }
+                                <span class="status-badge @statusClass">@statusName</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="info-label">Регион</div>
+                            <div class="info-value">@Model.Region?.Name</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="info-label">Комментарий</div>
+                            <div class="info-value" style="background: var(--light); padding: 1rem; border-radius: 10px; border: 1px solid var(--border); min-height: 80px;">
+                                @if(!string.IsNullOrEmpty(Model.Comments)) { @Model.Comments }
+                                else { <span class="text-muted">Комментариев нет</span> }
+                            </div>
+                        </div>
+
+                        <!-- ДОКУМЕНТ -->
+                        @if (Model.File != null)
+                        {
+                            <div class="mb-4">
+                                <div class="info-label">Прикреплённый документ</div>
+                                <div class="p-3 rounded-3" style="background: #f8f9fa; border: 1px solid var(--border);">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="text-truncate" style="max-width: 70%;">
+                                            <i class="bi bi-file-earmark-pdf text-primary me-2 fs-4"></i>
+                                            <strong>Ссылка на файл</strong>
+                                            <br>
+                                            <small class="text-muted" style="font-size: 0.8em;">@Model.File.FileUri</small>
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <a href="@Model.File.FileUri" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-box-arrow-up-right"></i> Открыть
+                                            </a>
+                                            @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                                            {
+                                                <form asp-controller="Order" asp-action="RemoveDocument" method="post" class="d-inline">
+                                                    <input type="hidden" name="orderId" value="@Model.OrderId" />
+                                                    <button type="submit" class="btn btn-sm btn-danger-custom" onclick="return confirm('Удалить документ?');">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- ПРАВАЯ КОЛОНКА -->
+                <div class="col-lg-7">
+                    <div class="card-custom h-100">
+                        <h4 class="mb-4 fw-bold"><i class="bi bi-shop text-primary me-2"></i>Информация о франшизе</h4>
+                        
+                        @if(Model.Franchise != null)
+                        {
+                            <div class="d-flex align-items-center mb-4">
+                                @if(!string.IsNullOrEmpty(Model.Franchise.MinPhotoUrl))
+                                {
+                                    <img src="@Model.Franchise.MinPhotoUrl" alt="Фото франшизы" style="width: 100px; height: 100px; object-fit: cover; border-radius: 15px; margin-right: 1.5rem;">
+                                }
+                                else
+                                {
+                                    <img src="https://placehold.co/100x100/f7c59f/ff6b35?text=Logo" alt="Logo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 15px; margin-right: 1.5rem;">
+                                }
+                                
+                                <div>
+                                    <h3 class="fw-bold mb-1">@Model.Franchise.Name</h3>
+                                    <div class="text-muted">
+                                        @Model.Franchise.Category?.Name • @Model.Franchise.Franchiser?.Name
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded-3" style="background: var(--light); border: 1px solid var(--border);">
+                                        <div class="info-label">Паушальный взнос</div>
+                                        <div class="fw-bold text-primary fs-5">@String.Format("{0:N0}", Model.Franchise.PledgeAmount) ₽</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded-3" style="background: var(--light); border: 1px solid var(--border);">
+                                        <div class="info-label">Инвестиции</div>
+                                        <div class="fw-bold text-primary fs-5">@String.Format("{0:N0}", Model.Franchise.InvestmentAmount) ₽</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="/Franchise/Index/@Model.Franchise.FranchiseId" class="btn btn-primary w-100 py-3 fw-bold" style="background: var(--primary); border: none; border-radius: 15px;">
+                                Перейти на страницу франшизы <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                        }
+                    </div>
+
+                    <!-- УПРАВЛЕНИЕ (ТОЛЬКО ДЛЯ ПЕРСОНАЛА) -->
+                    @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                    {
+                        <!-- Смена статуса -->
+                        <div class="card-custom mt-4">
+                            <h5 class="fw-bold mb-3"><i class="bi bi-arrow-repeat me-2"></i>Изменить статус</h5>
+                            <form asp-controller="Order" asp-action="ChangeStatus" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="orderId" value="@Model.OrderId" />
+                                <div class="mb-3">
+                                    <label class="form-label">Новый статус</label>
+                                    <select name="newStatusId" class="form-control" required>
+                                        @foreach (var status in ViewBag.OrderStatuses as List<FranchiseAggregator.Models.OrderStatus>)
+                                        {
+                                            <option value="@status.OrderStatusId" selected="@(status.OrderStatusId == Model.OrderStatusId)">
+                                                @status.Name
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-save" onclick="return confirm('Изменить статус заказа?');">
+                                    <i class="bi bi-check-circle me-1"></i>Применить
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Добавление документа -->
+                        <div class="card-custom mt-4">
+                            <h5 class="fw-bold mb-3"><i class="bi bi-paperclip me-2"></i>Добавить ссылку на документ</h5>
+                            <form asp-controller="Order" asp-action="AddDocument" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="orderId" value="@Model.OrderId" />
+                                <div class="mb-3">
+                                    <label class="form-label">URL файла <span class="text-danger">*</span></label>
+                                    <input type="url" name="documentUrl" class="form-control" placeholder="https://disk.yandex.ru/i/..." required maxlength="500" />
+                                    <small class="text-muted">Макс. 500 символов</small>
+                                </div>
+                                <button type="submit" class="btn btn-save" onclick="return confirm('Добавить документ к заказу?');">
+                                    <i class="bi bi-plus-circle me-1"></i>Прикрепить
+                                </button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

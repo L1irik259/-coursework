@@ -1,0 +1,377 @@
+﻿@model FranchiseAggregator.Models.Users
+@{
+    Layout = null;
+    ViewData["Title"] = "Мой профиль";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --primary: #ff6b35; --primary-dark: #e85d2a; --secondary: #f7c59f; --accent: #ffd23f; --dark: #2d3436; --light: #fdfdfd; --gray: #636e72; --border: #dfe6e9; --sidebar-width: 280px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+
+        .sidebar { position: fixed; top: 0; left: 0; width: var(--sidebar-width); height: 100vh; background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem 0; overflow-y: auto; z-index: 1000; box-shadow: 4px 0 15px rgba(0,0,0,0.1); }
+        .sidebar-brand { font-size: 1.75rem; font-weight: 900; text-align: center; margin-bottom: 3rem; padding: 0 1.5rem; }
+        .sidebar-brand i { color: var(--accent); }
+        .sidebar-menu { list-style: none; padding: 0 1rem; position: relative; left: -5px; }
+        .sidebar-menu li { margin-bottom: 0.5rem; }
+        .sidebar-menu a { display: flex; align-items: center; padding: 1rem 1.5rem; color: rgba(255,255,255,0.8); text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { background: rgba(255,255,255,0.2); color: white; transform: translateX(5px); }
+        .sidebar-menu a i { margin-right: 1rem; font-size: 1.25rem; width: 24px; text-align: center; }
+        
+        .main-content { margin-left: var(--sidebar-width); min-height: 100vh; width: calc(100vw - var(--sidebar-width)); padding: 0; position: relative; }
+        .page-header-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 3rem 4rem; text-align: center; color: white; }
+        .page-header-hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem; }
+
+        .profile-section { padding: 4rem 4rem; width: 100%; }
+        .card-custom { background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 1px solid var(--border); margin-bottom: 2rem; }
+        .section-heading { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; color: var(--dark); border-bottom: 2px solid var(--border); padding-bottom: 1rem; }
+        
+        .form-label { font-weight: 600; margin-bottom: 0.5rem; color: var(--dark); }
+        .form-control { padding: 0.75rem 1rem; border-radius: 10px; border: 2px solid var(--border); transition: all 0.3s; }
+        .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255,107,53,0.1); }
+        .form-control.is-invalid { border-color: #dc3545 !important; }
+        .form-control.is-valid { border-color: #198754 !important; }
+        
+        .btn-save { background: var(--primary); color: white; border: none; padding: 1rem 2rem; border-radius: 15px; font-weight: 700; font-size: 1.1rem; width: 100%; transition: all 0.3s; cursor: pointer; }
+        .btn-save:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255,107,53,0.3); }
+        .btn-save:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+        
+        .validation-error { color: #dc3545; font-size: 0.85rem; margin-top: 0.25rem; display: block; }
+        .password-error { background: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; color: #856404; }
+        .success-message { background: #d1e7dd; border-left: 4px solid #198754; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; color: #0f5132; }
+        
+        /* Счётчик символов */
+        .char-count { font-size: 0.75rem; color: var(--gray); text-align: right; margin-top: 0.25rem; }
+        .char-count.warning { color: #fd7e14; }
+        .char-count.error { color: #dc3545; font-weight: 600; }
+        .char-count.success { color: #198754; font-weight: 600; }
+
+        .sidebar-user { margin-top: auto; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
+        .sidebar-user-info { display: flex; align-items: center; margin-bottom: 1rem; }
+        .sidebar-user-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: bold; color: var(--primary); }
+        
+        .row { margin-left: 0 !important; margin-right: 0 !important; }
+        .col, [class*="col-"] { padding-left: 15px !important; padding-right: 15px !important; }
+    </style>
+</head>
+<body>
+<!-- Боковое меню -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-rocket-takeoff-fill"></i> FranchiseHub
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="bi bi-house-door-fill"></i> Главная</a></li>
+            <li><a href="/Catalog"><i class="bi bi-grid-fill"></i> Каталог франшиз</a></li>
+            <li><a href="/Home/About"><i class="bi bi-info-circle"></i> О компании</a></li>
+            <li><a href="/Home/Contacts"><i class="bi bi-envelope"></i> Контакты</a></li>
+            <li><a href="/Home/News"><i class="bi bi-newspaper"></i> Новости</a></li>
+            <li><a href="/Home/Promotions"><i class="bi bi-percent"></i> Акции</a></li>
+            
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Личный кабинет</li>
+                <li><a href="/Account/Profile" class="active"><i class="bi bi-person"></i> Мой профиль</a></li>
+                <li><a href="/Order/Index"><i class="bi bi-card-heading"></i> Мои заявки</a></li>
+                <li><a href="/Favorites/Index"><i class="bi bi-heart"></i> Избранное</a></li>
+                
+                @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li><a href="/Order/Management"><i class="bi bi-list-check"></i> Все заявки</a></li>
+                }
+                
+                @if (User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Администрирование</li>
+                    <li><a href="/News/Index"><i class="bi bi-newspaper"></i> Управление новостями</a></li>
+                    <li><a href="/Admin/Users"><i class="bi bi-people"></i> Управление пользователями</a></li>
+                    <li><a href="/Admin/Feedbacks"><i class="bi bi-chat-dots"></i> Управление обратной связью</a></li>
+                    <li><a href="/Reviews/Manage"><i class="bi bi-star"></i> Управление отзывами</a></li>
+                }
+                
+                <li class="mt-4"><a href="/Account/Logout"><i class="bi bi-box-arrow-right"></i> Выход</a></li>
+            }
+            else
+            {
+                <li class="mt-4"><a href="/Account/Login"><i class="bi bi-box-arrow-in-right"></i> Войти</a></li>
+                <li><a href="/Account/Register"><i class="bi bi-person-plus"></i> Регистрация</a></li>
+            }
+        </ul>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="sidebar-user">
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+                    <div>
+                        <div class="fw-bold">@User.Identity?.Name</div>
+                        <small class="text-white-50">
+                            @if (User.IsInRole("Администратор")) { <text>Администратор</text> }
+                            else if (User.IsInRole("Администратор сайта")) { <text>Администратор сайта</text> }
+                            else if (User.IsInRole("Менеджер")) { <text>Менеджер</text> }
+                            else { <text>Пользователь</text> }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </aside>
+
+    <div class="main-content">
+        <div class="page-header-hero">
+            <h1>Мой профиль</h1>
+        </div>
+
+        <section class="profile-section container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-12">
+                    <div class="card-custom">
+                        <h2 class="section-heading">Редактирование данных</h2>
+
+                        @if (ViewBag.SuccessMessage != null)
+                        {
+                            <div class="success-message">
+                                <i class="bi bi-check-circle-fill me-2"></i> @ViewBag.SuccessMessage
+                            </div>
+                        }
+                        @if (ViewBag.PasswordError != null)
+                        {
+                            <div class="password-error">
+                                <i class="bi bi-exclamation-triangle me-2"></i> @ViewBag.PasswordError
+                            </div>
+                        }
+
+                        <form action="/Account/Profile" method="post" id="profileForm" novalidate>
+                            @Html.AntiForgeryToken()
+                            
+                            <div class="row g-4">
+                                <!-- Имя -->
+                                <div class="col-12">
+                                    <label class="form-label">Ваше полное имя</label>
+                                    <input type="text" name="fullName" value="@Model.FullName" class="form-control" required maxlength="100" id="fullName">
+                                    <div class="char-count" id="fullNameCount">0/100</div>
+                                    @Html.ValidationMessage("FullName", new { @class = "validation-error" })
+                                </div>
+                                
+                                <!-- Email -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Email адрес</label>
+                                    <input type="email" name="email" value="@Model.Email" class="form-control" required maxlength="254" id="email">
+                                    <div class="char-count" id="emailCount">0/254</div>
+                                    @Html.ValidationMessage("Email", new { @class = "validation-error" })
+                                </div>
+                                
+                                <!-- Телефон -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Номер телефона</label>
+                                    <input type="text" name="phone" value="@Model.Phone" class="form-control" required maxlength="50" id="phone">
+                                    <div class="char-count" id="phoneCount">0/50</div>
+                                    @Html.ValidationMessage("Phone", new { @class = "validation-error" })
+                                </div>
+
+                                <!-- Разделитель для пароля -->
+                                <div class="col-12 mt-4 mb-3">
+                                    <hr class="text-muted">
+                                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-lock me-2"></i>Смена пароля</h5>
+                                    <small class="text-muted d-block">Заполните, только если хотите изменить пароль</small>
+                                </div>
+                                
+                                <!-- Текущий пароль с валидацией -->
+                                <div class="col-12">
+                                    <label class="form-label">Текущий пароль <span class="text-danger">*</span></label>
+                                    <input type="password" name="oldPassword" class="form-control" placeholder="Введите текущий пароль" autocomplete="current-password" id="oldPassword" maxlength="100">
+                                    <div class="char-count" id="oldPasswordCount">0/100</div>
+                                    <small class="text-muted d-block mt-1">Макс. 100 символов</small>
+                                </div>
+                                
+                                <!-- Новый пароль с валидацией -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Новый пароль</label>
+                                    <input type="password" name="newPassword" class="form-control" placeholder="Мин. 6, макс. 100 символов" autocomplete="new-password" id="newPassword" minlength="6" maxlength="100">
+                                    <div class="char-count" id="newPasswordCount">0/100</div>
+                                    <small class="text-muted d-block mt-1">
+                                        <i class="bi bi-check-circle text-success me-1"></i>Мин. 6 символов
+                                        <i class="bi bi-check-circle text-success ms-2 me-1"></i>Цифры + буквы
+                                    </small>
+                                </div>
+                                
+                                <!-- Подтверждение пароля -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Повторите новый пароль</label>
+                                    <input type="password" name="confirmPassword" class="form-control" placeholder="Повторите пароль" autocomplete="new-password" id="confirmPassword" maxlength="100">
+                                    <div class="char-count" id="confirmPasswordCount">0/100</div>
+                                    <div id="passwordMatch" class="validation-error"></div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-save" id="submitBtn">
+                                        <i class="bi bi-save me-2"></i>Сохранить изменения
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // === СЧЁТЧИКИ СИМВОЛОВ ДЛЯ ВСЕХ ПОЛЕЙ ===
+        function setupCharCount(inputId, counterId, min, max) {
+            const input = document.getElementById(inputId);
+            const counter = document.getElementById(counterId);
+            if (!input || !counter) return;
+            
+            function updateCount() {
+                const len = input.value.length;
+                counter.textContent = `${len}/${max}`;
+                
+                // Убираем старые классы
+                counter.classList.remove('warning', 'error', 'success');
+                
+                // Применяем стили в зависимости от длины
+                if (len === 0) {
+                    counter.classList.add('warning');
+                } else if (len < min) {
+                    counter.classList.add('error');
+                } else if (len > max) {
+                    counter.classList.add('error');
+                    input.classList.add('is-invalid');
+                } else {
+                    counter.classList.add('success');
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                }
+            }
+            
+            input.addEventListener('input', updateCount);
+            input.addEventListener('blur', updateCount);
+            updateCount(); // Инициализация
+        }
+
+        // Инициализируем счётчики
+        document.addEventListener('DOMContentLoaded', function() {
+            setupCharCount('fullName', 'fullNameCount', 3, 100);
+            setupCharCount('email', 'emailCount', 1, 254);
+            setupCharCount('phone', 'phoneCount', 5, 50);
+            setupCharCount('oldPassword', 'oldPasswordCount', 1, 100); // Текущий пароль: макс 100
+            setupCharCount('newPassword', 'newPasswordCount', 6, 100); // Новый пароль: мин 6, макс 100
+            setupCharCount('confirmPassword', 'confirmPasswordCount', 6, 100); // Подтверждение: мин 6, макс 100
+            
+            // === ПРОВЕРКА СОВПАДЕНИЯ ПАРОЛЕЙ ===
+            const newPassword = document.getElementById('newPassword');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const passwordMatch = document.getElementById('passwordMatch');
+            
+            function checkPasswordMatch() {
+                if (confirmPassword.value.length === 0) {
+                    passwordMatch.textContent = '';
+                    confirmPassword.classList.remove('is-invalid', 'is-valid');
+                    return;
+                }
+                
+                if (newPassword.value !== confirmPassword.value) {
+                    passwordMatch.textContent = 'Пароли не совпадают';
+                    confirmPassword.classList.add('is-invalid');
+                    confirmPassword.classList.remove('is-valid');
+                } else {
+                    passwordMatch.textContent = '';
+                    confirmPassword.classList.remove('is-invalid');
+                    confirmPassword.classList.add('is-valid');
+                }
+            }
+            
+            newPassword.addEventListener('input', checkPasswordMatch);
+            confirmPassword.addEventListener('input', checkPasswordMatch);
+            
+            // === ПРОВЕРКА ТРЕБОВАНИЙ К ПАРОЛЮ ===
+            function checkPasswordRequirements(password) {
+                const hasMinLength = password.length >= 6;
+                const hasMaxLength = password.length <= 100;
+                const hasDigit = /\d/.test(password);
+                const hasLetter = /[a-zA-Zа-яА-ЯёЁ]/.test(password);
+                return hasMinLength && hasMaxLength && hasDigit && hasLetter;
+            }
+            
+            // Валидация нового пароля
+            newPassword.addEventListener('input', function() {
+                const isValid = checkPasswordRequirements(this.value);
+                if (this.value.length > 0) {
+                    this.classList.toggle('is-valid', isValid);
+                    this.classList.toggle('is-invalid', !isValid);
+                } else {
+                    this.classList.remove('is-valid', 'is-invalid');
+                }
+            });
+            
+            // Валидация текущего пароля (только длина)
+            const oldPassword = document.getElementById('oldPassword');
+            oldPassword.addEventListener('input', function() {
+                if (this.value.length > 100) {
+                    this.classList.add('is-invalid');
+                } else if (this.value.length > 0) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.remove('is-valid', 'is-invalid');
+                }
+            });
+            
+            // === БЛОКИРОВКА ОТПРАВКИ ПРИ ОШИБКАХ ===
+            document.getElementById('profileForm').addEventListener('submit', function(e) {
+                const btn = document.getElementById('submitBtn');
+                
+                // Проверка текущего пароля
+                if (oldPassword.value.length > 100) {
+                    e.preventDefault();
+                    alert('Текущий пароль не должен превышать 100 символов');
+                    oldPassword.focus();
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="bi bi-save me-2"></i>Сохранить изменения';
+                    return;
+                }
+                
+                // Проверка паролей (только если заполнены)
+                if (newPassword.value.length > 0 || confirmPassword.value.length > 0) {
+                    if (!checkPasswordRequirements(newPassword.value)) {
+                        e.preventDefault();
+                        alert('Новый пароль должен содержать от 6 до 100 символов, включая цифры и буквы');
+                        newPassword.focus();
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="bi bi-save me-2"></i>Сохранить изменения';
+                        return;
+                    }
+                    if (newPassword.value !== confirmPassword.value) {
+                        e.preventDefault();
+                        alert('Пароли не совпадают');
+                        confirmPassword.focus();
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="bi bi-save me-2"></i>Сохранить изменения';
+                        return;
+                    }
+                }
+                
+                // Анимация кнопки
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Сохранение...';
+            });
+        });
+    </script>
+</body>
+</html>

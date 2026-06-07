@@ -1,0 +1,607 @@
+﻿@using FranchiseAggregator.Models
+@model FranchiseAggregator.Models.Franchise
+@{
+    Layout = null;
+    ViewData["Title"] = Model.Name + " - FranchiseHub";
+    var similarFranchises = ViewBag.SimilarFranchises as IEnumerable<Franchise>;
+    bool hasDiscount = ViewBag.HasDiscount;
+    decimal oldPrice = ViewBag.OldPrice;
+    decimal savings = ViewBag.Savings;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --primary: #ff6b35; 
+            --primary-dark: #e85d2a; 
+            --primary-light: #ff8c61;
+            --secondary: #f7c59f; 
+            --accent: #ffd23f; 
+            --dark: #2d3436; 
+            --light: #fdfdfd; 
+            --gray: #636e72; 
+            --border: #dfe6e9; 
+            --sidebar-width: 280px; 
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+
+        .sidebar { position: fixed; top: 0; left: 0; width: var(--sidebar-width); height: 100vh; background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 2rem 0; overflow-y: auto; z-index: 1000; box-shadow: 4px 0 15px rgba(0,0,0,0.1); }
+        .sidebar-brand { font-size: 1.75rem; font-weight: 900; text-align: center; margin-bottom: 3rem; padding: 0 1.5rem; }
+        .sidebar-brand i { color: var(--accent); }
+        .sidebar-menu { list-style: none; padding: 0 1rem; }
+        .sidebar-menu li { margin-bottom: 0.5rem; }
+        .sidebar-menu a { display: flex; align-items: center; padding: 1rem 1.5rem; color: rgba(255,255,255,0.8); text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { background: rgba(255,255,255,0.2); color: white; transform: translateX(5px); }
+        .sidebar-menu a i { margin-right: 1rem; font-size: 1.25rem; width: 24px; text-align: center; }
+        
+        .sidebar-user { margin-top: auto; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
+        .sidebar-user-info { display: flex; align-items: center; margin-bottom: 1rem; }
+        .sidebar-user-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: bold; color: var(--primary); }
+
+        .main-content { margin-left: var(--sidebar-width); min-height: 100vh; width: calc(100vw - var(--sidebar-width)); padding: 0; position: relative; }
+        
+        .page-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 3rem 4rem; width: 100%; }
+        .page-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
+        .breadcrumb-custom { display: flex; gap: 0.5rem; align-items: center; font-size: 1rem; opacity: 0.9; }
+        .breadcrumb-custom a { color: white; text-decoration: none; }
+
+        .details-section { padding: 4rem 4rem; width: 100%; }
+        
+        .gallery-full-width { width: 100%; margin-bottom: 3rem; padding: 0; }
+        .gallery-full-width .main-image { border-radius: 0; overflow: hidden; box-shadow: none; margin-bottom: 0; background: #eee; width: 100%; }
+        .gallery-full-width .main-image img { width: 100%; height: 600px; object-fit: cover; display: block; }
+
+        .franchise-info { background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 1px solid var(--border); margin-bottom: 3rem; }
+        .info-header { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border); }
+        .info-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark); }
+        .info-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .meta-item { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; color: var(--gray); }
+        .meta-item i { color: var(--primary); font-size: 1.3rem; }
+
+        .tags-container { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
+        .tag-badge { font-size: 0.9rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 25px; color: white; }
+
+        .description-text { font-size: 1.1rem; line-height: 1.8; color: var(--gray); white-space: pre-line; }
+
+        .price-section { background: linear-gradient(135deg, #fff5f0, #ffeaa7); border-radius: 20px; padding: 2.5rem; margin-bottom: 3rem; border: 2px solid var(--accent); }
+        .price-display { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .price-old { text-decoration: line-through; color: var(--gray); font-size: 1.5rem; font-weight: 600; }
+        .price-new { color: var(--primary); font-weight: 900; font-size: 3rem; line-height: 1; }
+        .price-savings { color: var(--primary); font-size: 1.1rem; font-weight: 600; background: rgba(255,107,53,0.1); padding: 0.5rem 1rem; border-radius: 10px; }
+
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .spec-card { background: white; padding: 2rem; border-radius: 15px; text-align: center; border: 2px solid var(--border); transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .spec-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .spec-card.premium { border-color: var(--accent); background: linear-gradient(135deg, #fff9e6, #fff3cc); }
+        .spec-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .spec-title { font-size: 0.9rem; color: var(--gray); font-weight: 500; margin-bottom: 0.5rem; }
+        .spec-value { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
+
+        .financial-section { margin-bottom: 3rem; background: #fff; padding: 2rem; border-radius: 20px; border: 1px solid var(--border); }
+
+        .requirements-section { margin-top: 3rem; background: #fff; padding: 2rem; border-radius: 20px; border: 1px solid var(--border); }
+        .requirements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .requirement-item { display: flex; gap: 1.5rem; padding: 1.5rem; background: #f8f9fa; border-radius: 15px; transition: all 0.3s ease; border: 1px solid transparent; }
+        .requirement-item:hover { background: white; border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); transform: translateY(-3px); }
+        .requirement-icon { font-size: 2rem; color: var(--primary); flex-shrink: 0; }
+        .requirement-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
+        .requirement-text { font-size: 0.95rem; color: var(--gray); line-height: 1.5; margin: 0; }
+
+        .reviews-wrapper { background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 1px solid var(--border); margin-bottom: 3rem; }
+        .review-item { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .review-item:last-child { border-bottom: none; }
+        .review-author { font-weight: 700; color: var(--dark); }
+        .review-date { font-size: 0.85rem; color: var(--gray); }
+        .review-rating { color: var(--accent); margin-bottom: 0.5rem; }
+
+        .contact-form { background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 1px solid var(--border); margin-bottom: 3rem; }
+        .section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--dark); }
+        .form-label { font-weight: 600; margin-bottom: 0.5rem; color: var(--dark); display: block; }
+        .form-control, .form-select { width: 100%; padding: 0.875rem 1.25rem; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; transition: all 0.3s ease; appearance: none; }
+        .form-control:focus, .form-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255,107,53,0.1); }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 1rem 3rem; border-radius: 15px; font-size: 1.1rem; font-weight: 700; transition: all 0.3s ease; cursor: pointer; width: 100%; }
+        .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255,107,53,0.4); }
+
+        .auth-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+        .btn-login, .btn-register { padding: 1rem 2rem; border-radius: 15px; font-weight: 700; text-align: center; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; }
+        .btn-login { background: transparent; border: 3px solid var(--primary); color: var(--primary); }
+        .btn-login:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+        .btn-register { background: var(--primary); border: 3px solid var(--primary); color: white; }
+        .btn-register:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255,107,53,0.4); }
+
+        .similar-section { margin-bottom: 3rem; }
+        .similar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .similar-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid var(--border); text-decoration: none; color: inherit; }
+        .similar-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); border-color: var(--primary); }
+        .similar-img { height: 200px; overflow: hidden; background: #eee; }
+        .similar-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .similar-card:hover .similar-img img { transform: scale(1.1); }
+        .similar-body { padding: 1.5rem; }
+        .similar-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
+        .similar-price { color: var(--primary); font-weight: 800; font-size: 1.5rem; }
+
+        .row { margin-left: 0 !important; margin-right: 0 !important; }
+        .col, [class*="col-"] { padding-left: 15px !important; padding-right: 15px !important; }
+        .container-fluid { padding-left: 0 !important; padding-right: 0 !important; }
+        
+        .alert-success { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 2rem; width: 100%; }
+        .alert-danger { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 2rem; width: 100%; }
+        
+        .btn-outline-primary { border: 3px solid var(--primary); color: var(--primary); background: transparent; font-weight: 700; transition: all 0.3s ease; border-radius: 15px; padding: 1.25rem 2rem; font-size: 1.1rem; text-align: center; }
+        .btn-outline-primary:hover { background: var(--primary); color: white; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,107,53,0.35); }
+
+        .action-btn-group { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .btn-heart { background: white; color: var(--primary); border: 2px solid var(--primary); font-weight: 700; padding: 1rem 2rem; border-radius: 15px; text-align: center; transition: all 0.3s ease; display: flex; align-items: center; }
+        .btn-heart:hover { background: var(--primary); color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,53,0.25); }
+    </style>
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-rocket-takeoff-fill"></i> FranchiseHub
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="bi bi-house-door-fill"></i> Главная</a></li>
+            <li><a href="/Catalog"><i class="bi bi-grid-fill"></i> Каталог франшиз</a></li>
+            <li><a href="/Home/About"><i class="bi bi-info-circle"></i> О компании</a></li>
+            <li><a href="/Home/Contacts"><i class="bi bi-envelope"></i> Контакты</a></li>
+            <li><a href="/Home/News"><i class="bi bi-newspaper"></i> Новости</a></li>
+            <li><a href="/Home/Promotions"><i class="bi bi-percent"></i> Акции</a></li>
+            
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Личный кабинет</li>
+                <li><a href="/Account/Profile"><i class="bi bi-person"></i> Мой профиль</a></li>
+                <li><a href="/Order/Index"><i class="bi bi-card-heading"></i> Мои заявки</a></li>
+                <li><a href="/Favorites/Index"><i class="bi bi-heart"></i> Избранное</a></li>
+                
+                @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li><a href="/Order/Management"><i class="bi bi-list-check"></i> Все заявки</a></li>
+                }
+                
+                @if (User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                {
+                    <li class="mt-4 mb-2 text-white-50 small text-uppercase fw-bold px-3">Администрирование</li>
+                    <li><a href="/News/Index"><i class="bi bi-newspaper"></i> Управление новостями</a></li>
+                    <li><a href="/Admin/Users"><i class="bi bi-people"></i> Управление пользователями</a></li>
+                    <li><a href="/Admin/Feedbacks"><i class="bi bi-chat-dots"></i> Управление обратной связью</a></li>
+                    <li><a href="/Reviews/Manage"><i class="bi bi-star"></i> Управление отзывами</a></li>
+                }
+                
+                <li class="mt-4"><a href="/Account/Logout"><i class="bi bi-box-arrow-right"></i> Выход</a></li>
+            }
+            else
+            {
+                <li class="mt-4"><a href="/Account/Login"><i class="bi bi-box-arrow-in-right"></i> Войти</a></li>
+                <li><a href="/Account/Register"><i class="bi bi-person-plus"></i> Регистрация</a></li>
+            }
+        </ul>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="sidebar-user">
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+                    <div>
+                        <div class="fw-bold">@User.Identity?.Name</div>
+                        <small class="text-white-50">
+                            @if (User.IsInRole("Администратор")) { <text>Администратор</text> }
+                            else if (User.IsInRole("Администратор сайта")) { <text>Администратор сайта</text> }
+                            else if (User.IsInRole("Менеджер")) { <text>Менеджер</text> }
+                            else { <text>Пользователь</text> }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </aside>
+
+    <div class="main-content">
+        <section class="page-header">
+            <h1 class="page-title">@Model.Name</h1>
+            <div class="breadcrumb-custom"><a href="/">Главная</a> / <a href="/Catalog">Каталог</a> / <span>@Model.Name</span></div>
+        </section>
+
+        <div class="gallery-full-width">
+            <div class="main-image">
+                @if (!string.IsNullOrEmpty(Model.MinPhotoUrl))
+                {
+                    <img src="@Model.MinPhotoUrl" alt="@Model.Name" id="mainImage">
+                }
+                else
+                {
+                    <img src="https://placehold.co/1920x600/f7c59f/ff6b35?text=@System.Net.WebUtility.UrlEncode(Model.Name)" alt="@Model.Name" id="mainImage">
+                }
+            </div>
+        </div>
+
+        <section class="details-section">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="container-fluid">
+                    <div class="alert alert-success">
+                        <strong><i class="bi bi-check-circle-fill me-2"></i> @TempData["SuccessMessage"]</strong>
+                    </div>
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="container-fluid">
+                    <div class="alert alert-danger">
+                        <strong><i class="bi bi-exclamation-triangle-fill me-2"></i> @TempData["ErrorMessage"]</strong>
+                    </div>
+                </div>
+            }
+
+            <div class="container-fluid">
+                <div class="franchise-info">
+                    <div class="info-header">
+                        <h2 class="info-title">@Model.Name</h2>
+                        <div class="info-meta">
+                            @if (Model.Franchiser != null) { <div class="meta-item"><i class="bi bi-building"></i> @Model.Franchiser.Name</div> }
+                            @if (Model.Category != null) { <div class="meta-item"><i class="bi bi-tag"></i> @Model.Category.Name</div> }
+                            @if (Model.FranType != null) { <div class="meta-item"><i class="bi bi-list-check"></i> @Model.FranType.Name</div> }
+                        </div>
+
+                        <!-- 🔽 БЛОК УПРАВЛЕНИЯ СТАТУСОМ (только для Менеджера и выше) 🔽 -->
+                        @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                        {
+                            <div class="mt-3 pt-3 border-top">
+                                <div class="d-flex align-items-center gap-3 flex-wrap">
+                                    <!-- Индикатор статуса -->
+                                    <span class="badge @(Model.FranStatusId == 1 ? "bg-success" : "bg-secondary") fs-6 px-3 py-2">
+                                        <i class="bi @(Model.FranStatusId == 1 ? "bi-check-circle-fill" : "bi-pause-circle-fill") me-1"></i>
+                                        @(Model.FranStatusId == 1 ? "Активна" : "Неактивна")
+                                    </span>
+                                    
+                                    <!-- Кнопка переключения -->
+                                    <form asp-controller="Franchise" asp-action="ToggleStatus" asp-route-id="@Model.FranchiseId" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        @if (Model.FranStatusId == 1)
+                                        {
+                                            <button type="submit" class="btn btn-warning btn-sm fw-bold"
+                                                    onclick="return confirm('Деактивировать франшизу?');">
+                                                <i class="bi bi-pause-circle me-1"></i>Деактивировать
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-success btn-sm fw-bold"
+                                                    onclick="return confirm('Активировать франшизу?');">
+                                                <i class="bi bi-play-circle me-1"></i>Активировать
+                                            </button>
+                                        }
+                                    </form>
+                                </div>
+                                <small class="text-muted d-block mt-2">
+                                    <i class="bi bi-info-circle me-1"></i>Неактивные франшизы скрыты из публичного каталога
+                                </small>
+                            </div>
+                        }
+                        <!-- 🔼 КОНЕЦ БЛОКА УПРАВЛЕНИЯ 🔼 -->
+                    </div>
+
+                    @if (Model.FranchiseTags != null && Model.FranchiseTags.Any())
+                    {
+                        <div class="tags-container">
+                            @foreach (var tag in Model.FranchiseTags)
+                            {
+                                if (tag.Tag != null)
+                                {
+                                    <span class="tag-badge" style="background-color: @(tag.Tag.Color ?? "#6c757d");">@tag.Tag.Name</span>
+                                }
+                            }
+                        </div>
+                    }
+
+                    <div class="description-section">
+                        <h3 class="section-title">О франшизе</h3>
+                        <div class="description-text">@Model.Description</div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price-display">
+                            @if (hasDiscount) { <div class="price-old">@oldPrice.ToString("N0") ₽</div> }
+                            <div class="price-new">@Model.FinalPrice.ToString("N0") ₽</div>
+                            @if (hasDiscount) { <div class="price-savings">Экономия: @savings.ToString("N0") ₽ (@Model.DiscountPercent%)</div> }
+                        </div>
+                        
+                        <div class="specs-grid">
+                            @if (Model.Franchiser != null)
+                            {
+                                <div class="spec-card">
+                                    <div class="spec-icon">💼</div>
+                                    <div class="spec-title">Франчайзер</div>
+                                    <div class="spec-value">@Model.Franchiser.Name</div>
+                                </div>
+                            }
+                            @if (Model.Category != null)
+                            {
+                                <div class="spec-card">
+                                    <div class="spec-icon">📁</div>
+                                    <div class="spec-title">Категория</div>
+                                    <div class="spec-value">@Model.Category.Name</div>
+                                </div>
+                            }
+                            @if (Model.FranType != null)
+                            {
+                                <div class="spec-card">
+                                    <div class="spec-icon">🚀</div>
+                                    <div class="spec-title">Тип франшизы</div>
+                                    <div class="spec-value">@Model.FranType.Name</div>
+                                </div>
+                            }
+                            @if (Model.FinalPrice > 1000)
+                            {
+                                <div class="spec-card premium">
+                                    <div class="spec-icon">⭐</div>
+                                    <div class="spec-title">Статус</div>
+                                    <div class="spec-value">Премиум</div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="financial-section">
+                        <h3 class="section-title">Финансовые показатели</h3>
+                        <div class="specs-grid">
+                            <div class="spec-card">
+                                <div class="spec-icon">💰</div>
+                                <div class="spec-title">Инвестиции</div>
+                                <div class="spec-value">@Model.InvestmentAmount.ToString("N0") ₽</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon">💳</div>
+                                <div class="spec-title">Паушальный взнос</div>
+                                <div class="spec-value">@Model.PledgeAmount.ToString("N0") ₽</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon">📊</div>
+                                <div class="spec-title">Роялти</div>
+                                <div class="spec-value">@Model.RoyaltyPercent.ToString("F1")%</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon">⏳</div>
+                                <div class="spec-title">Окупаемость</div>
+                                <div class="spec-value">@Model.PaybackPeriod мес.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Model.PremTypes != null)
+                    {
+                        <div class="requirements-section">
+                            <h3 class="section-title">Требования к помещению</h3>
+                            <div class="requirements-grid">
+                                <div class="requirement-item">
+                                    <i class="bi bi-building requirement-icon"></i>
+                                    <div>
+                                        <h5 class="requirement-title">Тип помещения</h5>
+                                        <p class="requirement-text">@Model.PremTypes.Name</p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="bi bi-rulers requirement-icon"></i>
+                                    <div>
+                                        <h5 class="requirement-title">Минимальная площадь</h5>
+                                        <p class="requirement-text">
+                                            @if (Model.PremTypes.MinArea.HasValue)
+                                            {
+                                                @Model.PremTypes.MinArea.Value.ToString("F0") <text> м<sup>2</sup></text>
+                                            }
+                                            else { <span class="text-muted">Не указано</span> }
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="requirement-item">
+                                    <i class="bi bi-list-check requirement-icon"></i>
+                                    <div>
+                                        <h5 class="requirement-title">Требования</h5>
+                                        <p class="requirement-text">
+                                            @if (!string.IsNullOrEmpty(Model.PremTypes.Requirements))
+                                            {
+                                                @Model.PremTypes.Requirements
+                                            }
+                                            else { <span class="text-muted">Не указано</span> }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="requirements-section">
+                            <h3 class="section-title">Требования к помещению</h3>
+                            <p class="text-muted">Информация о требованиях к помещению отсутствует</p>
+                        </div>
+                    }
+
+                    <div class="reviews-wrapper mt-5">
+                        <h2 class="section-title text-center mb-5 pb-2">Отзывы покупателей</h2>
+                        @{ var reviews = ViewBag.Reviews as System.Collections.Generic.IEnumerable<FranchiseAggregator.Models.Review>; }
+                        
+                        @if (reviews != null && reviews.Any())
+                        {
+                            <div class="reviews-list mb-5">
+                                @foreach (var review in reviews)
+                                {
+                                    <div class="review-item p-4 bg-light rounded shadow-sm mb-3">
+                                        <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                            <div class="mb-2">
+                                                <span class="fw-bold fs-5">@review.User?.FullName ?? "Аноним"</span>
+                                                <small class="text-muted ms-2">@review.CreatedAt.ToString("dd.MM.yyyy")</small>
+                                            </div>
+                                            <div class="review-rating text-warning fs-4">
+                                                @for (int i = 0; i < review.Rating; i++) { <i class="bi bi-star-fill"></i> }
+                                                @for (int i = review.Rating; i < 5; i++) { <i class="bi bi-star"></i> }
+                                            </div>
+                                        </div>
+                                        <p class="fs-5 text-secondary border-top pt-2 mt-2">@review.Text</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info text-center">
+                                <i class="bi bi-chat-square-text fs-1 d-block mb-2"></i>
+                                Пока нет отзывов. Будьте первым!
+                            </div>
+                        }
+
+                        <div class="review-add-form-container p-4 bg-light rounded-3 border mt-4">
+                            <h5 class="fw-bold mb-3">Оставить отзыв</h5>
+                            @if (ViewBag.UserData != null)
+                            {
+                                <form asp-controller="Franchise" asp-action="AddReview" method="post">
+                                    <input type="hidden" name="FranchiseId" value="@Model.FranchiseId" />
+                                    <div class="row g-4">
+                                        <div class="col-md-4">
+                                            <label class="form-label fw-bold small">Оценка</label>
+                                            <select name="rating" class="form-select" required>
+                                                <option value="" disabled selected>Выберите оценку...</option>
+                                                <option value="1">⭐</option>
+                                                <option value="2">⭐⭐</option>
+                                                <option value="3">⭐⭐⭐</option>
+                                                <option value="4">⭐⭐⭐⭐</option>
+                                                <option value="5">⭐⭐⭐⭐⭐</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label class="form-label fw-bold small">Текст отзыва</label>
+                                            <textarea name="text" class="form-control" rows="4" maxlength="500" required placeholder="Поделитесь своим мнением..."></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary w-100 fw-bold py-2 rounded-pill" style="background: var(--primary); border-color: var(--primary);">Отправить отзыв</button>
+                                            <small class="text-muted d-block mt-2 text-center">Модерация занимает от 1 до 2 дней.</small>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="text-center my-3">
+                                    <p class="text-muted">Для написания отзывов войдите в систему</p>
+                                    <a href="/Account/Login" class="btn btn-outline-dark px-4 rounded-pill mt-2">Войти</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="contact-form mt-5">
+                        <h3 class="section-title">Заинтересовала франшиза?</h3>
+                        @if (ViewBag.UserData != null)
+                        {
+                            <div class="row mb-4">
+                                <div class="col-md-12">
+                                    <a asp-controller="Favorites" asp-action="Add" asp-route-id="@Model.FranchiseId" class="btn btn-heart">
+                                        <i class="bi bi-heart"></i> В избранное
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <form asp-controller="Franchise" asp-action="SendRequest" method="post">
+                                <input type="hidden" name="id" value="@ViewBag.CurrentFranchiseId" />
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Ваше имя</label>
+                                        <input type="text" name="FullName" class="form-control" value="@ViewBag.UserData.FullName" required minlength="3" maxlength="100" placeholder="Иванов Иван Иванович">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Телефон</label>
+                                        <input type="tel" name="Phone" class="form-control" value="@ViewBag.UserData.Phone" required minlength="5" maxlength="20" placeholder="+7 (999) 000-00-00">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" name="Email" class="form-control" value="@ViewBag.UserData.Email" required maxlength="254" placeholder="example@mail.ru">
+                                        <small class="text-muted">(Ваши данные из аккаунта)</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Регион</label>
+                                        <select name="RegionId" class="form-select">
+                                            <option value="" disabled selected>Выберите регион</option>
+                                            @foreach (var region in ViewBag.Regions as List<Region>)
+                                            {
+                                                <option value="@region.RegionId">@region.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Способ связи</label>
+                                        <select name="ContactMethodId" class="form-select">
+                                            <option value="" disabled selected>Как связаться?</option>
+                                            @foreach (var cm in ViewBag.ContactMethods as List<ContactMethod>)
+                                            {
+                                                <option value="@cm.ContactMethodId">@cm.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Сообщение (необязательно)</label>
+                                        <textarea name="Comment" class="form-control" rows="4" maxlength="500" placeholder="Ваши вопросы или пожелания..." style="resize: vertical;"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-submit mt-4">Отправить заявку <i class="bi bi-paper-plane-fill ms-2"></i></button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="auth-buttons">
+                                <a href="/Account/Login" class="btn btn-login"><i class="bi bi-box-arrow-in-right me-2"></i>Войти</a>
+                                <a href="/Account/Register" class="btn btn-register"><i class="bi bi-person-plus me-2"></i>Регистрация</a>
+                            </div>
+                        }
+                    </div>
+
+                    @if (similarFranchises != null && similarFranchises.Any())
+                    {
+                        <div class="similar-section">
+                            <h3 class="section-title">Похожие франшизы</h3>
+                            <div class="similar-grid">
+                                @foreach (var sim in similarFranchises)
+                                {
+                                    <a href="/Franchise/Index/@sim.FranchiseId" class="similar-card">
+                                        <div class="similar-img">
+                                            @if (!string.IsNullOrEmpty(sim.MinPhotoUrl))
+                                            {
+                                                <img src="@sim.MinPhotoUrl" alt="@sim.Name">
+                                            }
+                                            else
+                                            {
+                                                <img src="https://placehold.co/400x300/f7c59f/ff6b35?text=Нет+фото" alt="Нет фото">
+                                            }
+                                        </div>
+                                        <div class="similar-body">
+                                            <h4 class="similar-title">@sim.Name</h4>
+                                            <div class="similar-price">@sim.FinalPrice.ToString("N0") ₽</div>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

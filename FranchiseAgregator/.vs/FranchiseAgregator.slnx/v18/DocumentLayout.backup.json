@@ -1,0 +1,960 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\franchiseagregator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\franchiseagregator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\order\\management.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\order\\management.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\reviews\\manage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\reviews\\manage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\news\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\news\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\news\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\news\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\home\\promotions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\home\\promotions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\home\\news.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\home\\news.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\home\\contacts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\home\\contacts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\franchise\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\franchise\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\favorites\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\favorites\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\catalog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\catalog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\admin\\feedbacks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\admin\\feedbacks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\franshizecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\franshizecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\catalogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\catalogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\feedbackstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\feedbackstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\newsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\newsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417230128_1234567890.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FranchiseAgregator\\Migrations\\20260417230128_1234567890.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417225312_AddNe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FranchiseAgregator\\Migrations\\20260417225312_AddNe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417224449_AddNews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FranchiseAgregator\\Migrations\\20260417224449_AddNews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\dbfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\dbfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\favoritescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\favoritescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\contactmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\contactmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\premtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\premtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414004748_AddFeedbackTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FranchiseAgregator\\Migrations\\20260414004748_AddFeedbackTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\franchise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\franchise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\models\\userstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\models\\userstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\migrations\\20260414020632_fixorderrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\migrations\\20260414020632_fixorderrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\migrations\\20260414010040_fixorderrelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\migrations\\20260414010040_fixorderrelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\migrations\\20260417225302_addnew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\migrations\\20260417225302_addnew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|c:\\users\\windows\\source\\repos\\franchiseagregator\\franchiseagregator\\migrations\\20260418162453_123123123.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FAAEB39-D061-6291-3416-2567ABD5DEEF}|FranchiseAgregator\\FranchiseAgregator.csproj|solutionrelative:franchiseagregator\\migrations\\20260418162453_123123123.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 320,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\appsettings.json",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\appsettings.json",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\appsettings.json",
+              "RelativeToolTip": "FranchiseAgregator\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-22T16:02:30.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FranchiseAgregator",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\FranchiseAgregator.csproj",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\FranchiseAgregator.csproj",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\FranchiseAgregator.csproj",
+              "RelativeToolTip": "FranchiseAgregator\\FranchiseAgregator.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-22T15:45:03.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Order\\Index.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Order\\Index.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Order\\Index.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Order\\Index.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAIBJwHQAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T20:48:34.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Category.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T23:00:05.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Program.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Program.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Program.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Program.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAuwEIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:16:59.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAkwMgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T22:40:42.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAEIBAAAAAAAAAAAswGYBAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-13T23:02:30.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Order\\Details.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Order\\Details.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Order\\Details.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Order\\Details.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAIBJwGMAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T21:03:33.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\News\\Index.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\News\\Index.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\News\\Index.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\News\\Index.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAYwFIAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T23:39:52.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\News\\Edit.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\News\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\News\\Edit.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\News\\Edit.cshtml",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAYwEwAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T23:44:05.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\DbContext\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\DbContext\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\DbContext\\ApplicationDbContext.cs",
+              "RelativeToolTip": "FranchiseAgregator\\DbContext\\ApplicationDbContext.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswFkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T16:57:25.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\News\\Create.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\News\\Create.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\News\\Create.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\News\\Create.cshtml",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAYwEwAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T23:41:46.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Promotions.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Promotions.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Home\\Promotions.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Promotions.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Home\\Promotions.cshtml",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAYwK0AAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-14T21:52:29.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Management.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Order\\Management.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Order\\Management.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Order\\Management.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Order\\Management.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAFwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T21:57:21.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Manage.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Reviews\\Manage.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Reviews\\Manage.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Reviews\\Manage.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Reviews\\Manage.cshtml",
+              "ViewState": "AgIAADUAAAAAAAAAAAAYwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T19:04:40.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-14T22:02:35.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "News.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\News.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Home\\News.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\News.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Home\\News.cshtml",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAYwIYAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-14T02:42:25.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Contacts.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Contacts.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Home\\Contacts.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\Contacts.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Home\\Contacts.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwGcAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-14T00:33:50.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAYwNIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-13T22:44:45.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Franchise\\Index.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Franchise\\Index.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Franchise\\Index.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Franchise\\Index.cshtml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAYwLQAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T16:11:32.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Favorites\\Index.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Favorites\\Index.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Favorites\\Index.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Favorites\\Index.cshtml",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAYwIkAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-16T21:32:34.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Catalog\\Index.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Catalog\\Index.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Catalog\\Index.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Catalog\\Index.cshtml",
+              "ViewState": "AgIAABwCAAAAAAAAAAAwwCUCAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-13T23:15:21.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Users.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Admin\\Users.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Admin\\Users.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Admin\\Users.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Admin\\Users.cshtml",
+              "ViewState": "AgIAAFgBAAAAAAAAAAAYwGIBAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T16:50:35.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Feedbacks.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Admin\\Feedbacks.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Admin\\Feedbacks.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Admin\\Feedbacks.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Admin\\Feedbacks.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAYwFIAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T16:55:32.461Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAEYAAAAAAAAAAABBwGMAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-14T22:27:11.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBJwFkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T21:34:29.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-12T21:35:33.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Review.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Review.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Review.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAkwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T23:33:38.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "CatalogController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\CatalogController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\CatalogController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\CatalogController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\CatalogController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAIBQwB8AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T22:40:34.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Users.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Users.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Users.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAzwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T16:23:04.291Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "FranshizeController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\FranshizeController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\FranshizeController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\FranshizeController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\FranshizeController.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAqwNQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T20:46:36.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\ReviewController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\ReviewController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\ReviewController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\ReviewController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T19:04:25.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAADcBAAAAAAAAAAAqwEQBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:19:29.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAuwEsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T16:41:58.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "FeedbackStatus.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\FeedbackStatus.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\FeedbackStatus.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\FeedbackStatus.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\FeedbackStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T16:14:05.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Feedback.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Feedback.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Feedback.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Feedback.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Feedback.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T00:44:22.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20260418162453_123123123.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260418162453_123123123.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260418162453_123123123.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260418162453_123123123.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260418162453_123123123.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T16:24:53.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "FeedbackController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\FeedbackController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\FeedbackController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\FeedbackController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\FeedbackController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA2wB0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T01:05:43.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\NewsController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\NewsController.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAqwMQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T23:39:37.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "News.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\News.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\News.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\News.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\News.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAIwBoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T22:21:27.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "NewsStatus.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\NewsStatus.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\NewsStatus.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\NewsStatus.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\NewsStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T22:25:41.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "20260417230128_1234567890.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417230128_1234567890.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260417230128_1234567890.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417230128_1234567890.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260417230128_1234567890.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T23:01:28.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:47:53.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "20260417225302_AddNew.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417225302_AddNew.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260417225302_AddNew.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417225302_AddNew.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260417225302_AddNew.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T22:53:02.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "20260417225312_AddNe.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417225312_AddNe.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260417225312_AddNe.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417225312_AddNe.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260417225312_AddNe.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T22:53:12.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "20260417224449_AddNews.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417224449_AddNews.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260417224449_AddNews.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260417224449_AddNews.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260417224449_AddNews.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T22:44:49.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "DbFile.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\DbFile.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\DbFile.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\DbFile.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\DbFile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T21:19:54.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Order.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Order.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA9wBcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T22:03:28.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "FavoritesController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\FavoritesController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\FavoritesController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\FavoritesController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\FavoritesController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAuwCQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T20:49:44.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ContactMethod.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\ContactMethod.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\ContactMethod.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\ContactMethod.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\ContactMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T22:03:58.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "PremTypes.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\PremTypes.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\PremTypes.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\PremTypes.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\PremTypes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T20:11:27.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "20260414004748_AddFeedbackTable.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414004748_AddFeedbackTable.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260414004748_AddFeedbackTable.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414004748_AddFeedbackTable.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260414004748_AddFeedbackTable.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T00:47:49.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "20260414020632_FixOrderRelationship.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414020632_FixOrderRelationship.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260414020632_FixOrderRelationship.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414020632_FixOrderRelationship.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260414020632_FixOrderRelationship.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T02:06:32.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "20260414010040_FixOrderRelationships.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414010040_FixOrderRelationships.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Migrations\\20260414010040_FixOrderRelationships.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Migrations\\20260414010040_FixOrderRelationships.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Migrations\\20260414010040_FixOrderRelationships.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T01:00:41.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Region.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Region.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Region.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Region.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Region.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T21:35:58.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "FranchiseAgregator\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-13T23:01:59.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Franchise.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Franchise.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\Franchise.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\Franchise.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\Franchise.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:21:08.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "UserStatus.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\UserStatus.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Models\\UserStatus.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Models\\UserStatus.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Models\\UserStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:26:48.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "FranchiseAgregator\\Controllers\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\windows\\source\\repos\\FranchiseAgregator\\FranchiseAgregator\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "FranchiseAgregator\\Controllers\\ErrorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T22:40:37.987Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
