@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using FranchAdm.Db;
+using FranchAdm.Services;
 
 namespace FranchAdm.Views
 {
@@ -234,8 +238,9 @@ namespace FranchAdm.Views
             try
             {
                 bool hasSelection = lvOrders.SelectedItem != null;
-                btnEditStatus.IsEnabled = hasSelection;
-                btnDelete.IsEnabled = hasSelection && UserSession.IsAdmin;
+                btnEditStatus.IsEnabled      = hasSelection;
+                btnGenerateReceipt.IsEnabled = hasSelection;
+                btnDelete.IsEnabled          = hasSelection && UserSession.IsAdmin;
             }
             catch (Exception ex) { HandleError("Ошибка при выборе заявки", ex); }
         }
@@ -309,6 +314,96 @@ namespace FranchAdm.Views
             catch (Exception ex)
             {
                 HandleError("Ошибка при удалении заявки", ex);
+            }
+        }
+
+        private void BtnGenerateReceipt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (!(lvOrders.SelectedItem is DataRowView row)) return;
+                if (row["OrderId"] == DBNull.Value) return;
+
+                int    orderId     = Convert.ToInt32(row["OrderId"]);
+                string orderNumber = row["OrderNumber"]?.ToString() ?? $"#{orderId}";
+
+                var confirm = MessageBox.Show(
+                    $"Сформировать PDF-чек для заявки {orderNumber}?",
+                    "Формирование чека",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question,
+                    MessageBoxResult.Yes);
+
+                if (confirm != MessageBoxResult.Yes) return;
+
+                var data = LoadReceiptData(orderId);
+                if (data == null)
+                {
+                    MessageBox.Show("Не удалось загрузить данные заявки.", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                byte[] pdfBytes = PdfReceiptService.Generate(data);
+
+                SaveReceiptToDb(orderId, orderNumber, pdfBytes);
+
+                string safeName  = orderNumber.Replace("/", "_").Replace("\\", "_");
+                string tempPath  = Path.Combine(Path.GetTempPath(),
+                    $"Чек_{safeName}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf");
+                File.WriteAllBytes(tempPath, pdfBytes);
+                Process.Start(tempPath);
+
+                MessageBox.Show("Чек успешно сформирован и сохранён!", "Готово",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                HandleError("Ошибка при формировании чека", ex);
+            }
+        }
+
+        private ReceiptDataDto LoadReceiptData(int orderId)
+        {
+            using (var db = new FranchiseDBEntities1())
+            {
+                return db.Orders
+                    .Where(o => o.OrderId == orderId)
+                    .Select(o => new ReceiptDataDto
+                    {
+                        OrderId           = o.OrderId,
+                        OrderNumber       = o.OrderNumber,
+                        CreatedAt         = o.CreatedAt,
+                        ClientName        = o.User.FullName,
+                        ClientEmail       = o.User.Email,
+                        FranchiseName     = o.Franchise.Name,
+                        FranchiserName    = o.Franchise.Franchiser.Name,
+                        CategoryName      = o.Franchise.Category.Name,
+                        FinalPrice        = o.Franchise.FinalPrice,
+                        PledgeAmount      = o.Franchise.PledgeAmount,
+                        RoyaltyPercent    = o.Franchise.RoyaltyPercent,
+                        DiscountPercent   = o.Franchise.DiscountPercent,
+                        RegionName        = o.Region.Name,
+                        ContactMethodName = o.ContactMethod.Name
+                    })
+                    .FirstOrDefault();
+            }
+        }
+
+        private void SaveReceiptToDb(int orderId, string orderNumber, byte[] pdfBytes)
+        {
+            string fileName = $"Чек_{orderNumber.Replace("/", "_")}_{DateTime.Now:yyyyMMdd}.pdf";
+
+            using (var db = new FranchiseDBEntities1())
+            {
+                db.Database.ExecuteSqlCommand(
+                    @"INSERT INTO OrderReceipts (OrderId, FileName, FileData, GeneratedAt, GeneratedByUserId)
+                      VALUES (@orderId, @fileName, @fileData, @generatedAt, @generatedByUserId)",
+                    new SqlParameter("@orderId",           orderId),
+                    new SqlParameter("@fileName",          fileName),
+                    new SqlParameter("@fileData",          pdfBytes),
+                    new SqlParameter("@generatedAt",       DateTime.Now),
+                    new SqlParameter("@generatedByUserId", UserSession.UserId));
             }
         }
 
