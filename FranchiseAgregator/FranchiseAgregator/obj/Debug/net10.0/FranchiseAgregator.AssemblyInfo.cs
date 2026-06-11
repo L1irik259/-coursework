@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FranchiseAgregator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a4cf6cde73d6c6c7f55a714251fa8fcd90fc207")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82ffe9d6ea8fac0ef4b736dd9a1e77e135fe8544")]
 [assembly: System.Reflection.AssemblyProductAttribute("FranchiseAgregator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FranchiseAgregator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

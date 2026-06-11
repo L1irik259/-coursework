@@ -302,12 +302,12 @@
                         <!-- Смена статуса -->
                         <div class="card-custom mt-4">
                             <h5 class="fw-bold mb-3"><i class="bi bi-arrow-repeat me-2"></i>Изменить статус</h5>
-                            <form asp-controller="Order" asp-action="ChangeStatus" method="post">
+                            <form asp-controller="Order" asp-action="ChangeStatus" method="post" id="statusForm">
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="orderId" value="@Model.OrderId" />
                                 <div class="mb-3">
                                     <label class="form-label">Новый статус</label>
-                                    <select name="newStatusId" class="form-control" required>
+                                    <select name="newStatusId" id="statusSelect" class="form-control" required>
                                         @foreach (var status in ViewBag.OrderStatuses as List<FranchiseAgregator.Models.OrderStatus>)
                                         {
                                             <option value="@status.OrderStatusId" selected="@(status.OrderStatusId == Model.OrderStatusId)">
@@ -316,11 +316,56 @@
                                         }
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-save" onclick="return confirm('Изменить статус заказа?');">
+
+                                <div id="completedUrlSection" style="display:none;" class="mb-3">
+                                    <label class="form-label">
+                                        Ссылка на документ <span class="text-danger">*</span>
+                                        <small class="text-muted fw-normal">— будет закодирована в QR-код чека</small>
+                                    </label>
+                                    <input type="url" name="documentUrl" id="completedUrl"
+                                           class="form-control"
+                                           placeholder="https://disk.yandex.ru/i/..."
+                                           maxlength="500" />
+                                    <small class="text-muted">Обязательно при статусе «Выполнена»</small>
+                                </div>
+
+                                <button type="submit" class="btn btn-save" id="statusSubmitBtn">
                                     <i class="bi bi-check-circle me-1"></i>Применить
                                 </button>
                             </form>
                         </div>
+
+                        <script>
+                            (function () {
+                                var select = document.getElementById('statusSelect');
+                                var section = document.getElementById('completedUrlSection');
+                                var input = document.getElementById('completedUrl');
+                                var btn = document.getElementById('statusSubmitBtn');
+
+                                function toggle() {
+                                    var isCompleted = select.options[select.selectedIndex].text
+                                        .toLowerCase().includes('выполнен');
+                                    section.style.display = isCompleted ? 'block' : 'none';
+                                    input.required = isCompleted;
+                                    if (!isCompleted) input.value = '';
+                                }
+
+                                select.addEventListener('change', toggle);
+                                toggle();
+
+                                document.getElementById('statusForm').addEventListener('submit', function (e) {
+                                    var isCompleted = select.options[select.selectedIndex].text
+                                        .toLowerCase().includes('выполнен');
+                                    if (isCompleted && !input.value.trim()) {
+                                        e.preventDefault();
+                                        input.classList.add('is-invalid');
+                                        input.focus();
+                                        return;
+                                    }
+                                    if (!confirm('Изменить статус заказа?')) e.preventDefault();
+                                });
+                            })();
+                        </script>
 
                         <!-- Добавление документа -->
                         <div class="card-custom mt-4">

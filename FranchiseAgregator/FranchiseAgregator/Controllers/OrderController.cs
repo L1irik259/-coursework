@@ -97,7 +97,7 @@ namespace FranchiseAgregator.Controllers
         [HttpPost]
         [Authorize(Roles = "Менеджер,Администратор сайта,Администратор")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangeStatus(int orderId, int newStatusId)
+        public async Task<IActionResult> ChangeStatus(int orderId, int newStatusId, string? documentUrl)
         {
             if (orderId <= 0)
             {
@@ -130,13 +130,30 @@ namespace FranchiseAgregator.Controllers
                     return RedirectToAction("Details", new { id = orderId });
                 }
 
+                bool isCompleted = newStatus.Name.Contains("Выполнен", StringComparison.OrdinalIgnoreCase);
+
+                if (isCompleted)
+                {
+                    if (string.IsNullOrWhiteSpace(documentUrl))
+                    {
+                        TempData["ErrorMessage"] = "Для статуса «Выполнена» необходимо указать ссылку на документ — по ней будет сформирован QR-код в чеке.";
+                        return RedirectToAction("Details", new { id = orderId });
+                    }
+
+                    if (!Regex.IsMatch(documentUrl, @"^https?://.+\..+", RegexOptions.IgnoreCase))
+                    {
+                        TempData["ErrorMessage"] = "Неверный формат ссылки. Пример: https://disk.yandex.ru/i/...";
+                        return RedirectToAction("Details", new { id = orderId });
+                    }
+                }
+
                 string oldStatusName = order.OrderStatus?.Name ?? "Неизвестно";
                 order.OrderStatusId = newStatusId;
                 await _context.SaveChangesAsync();
 
-                if (newStatus.Name.Equals("Выполнен", StringComparison.OrdinalIgnoreCase))
+                if (isCompleted)
                 {
-                    await AttachPdfToOrder(orderId);
+                    await AttachPdfToOrder(orderId, documentUrl!.Trim());
                 }
 
                 TempData["SuccessMessage"] = $"Статус заказа #{orderId} изменён с \"{oldStatusName}\" на \"{newStatus.Name}\"";
@@ -288,7 +305,7 @@ namespace FranchiseAgregator.Controllers
                 return RedirectToAction("Details", new { id = orderId });
             }
         }
-        private async Task AttachPdfToOrder(int orderId)
+        private async Task AttachPdfToOrder(int orderId, string qrUrl)
         {
             var order = await _context.Orders
                 .Include(o => o.Franchise).ThenInclude(f => f.Category)
@@ -302,7 +319,7 @@ namespace FranchiseAgregator.Controllers
 
             if (order == null) return;
 
-            byte[] pdfBytes = _pdfService.GenerateOrderPdf(order);
+            byte[] pdfBytes = _pdfService.GenerateOrderPdf(order, qrUrl);
             string fileName = $"order_{orderId}.pdf";
 
             if (order.FileId.HasValue)
