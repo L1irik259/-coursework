@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FranchiseAgregator.Models;
+using FranchiseAgregator.Services;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace FranchiseAgregator.Controllers
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly PdfOrderService _pdfService;
 
-        public OrderController(ApplicationDbContext context)
+        public OrderController(ApplicationDbContext context, PdfOrderService pdfService)
         {
             _context = context;
+            _pdfService = pdfService;
         }
 
         // === СПИСОК ЗАЯВОК ПОЛЬЗОВАТЕЛЯ ===
@@ -131,6 +134,11 @@ namespace FranchiseAgregator.Controllers
                 order.OrderStatusId = newStatusId;
                 await _context.SaveChangesAsync();
 
+                if (newStatus.Name.Equals("Выполнен", StringComparison.OrdinalIgnoreCase))
+                {
+                    await AttachPdfToOrder(orderId);
+                }
+
                 TempData["SuccessMessage"] = $"Статус заказа #{orderId} изменён с \"{oldStatusName}\" на \"{newStatus.Name}\"";
                 return RedirectToAction("Details", new { id = orderId });
             }
@@ -211,6 +219,31 @@ namespace FranchiseAgregator.Controllers
             }
         }
 
+        // === СКАЧИВАНИЕ PDF-ДОКУМЕНТА ===
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> DownloadPdf(int orderId)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim)) return RedirectToAction("Login", "Account");
+
+            int userId = int.Parse(userIdClaim);
+            bool isStaff = User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор");
+
+            var order = await _context.Orders
+                .Include(o => o.File)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null || (order.UserId != userId && !isStaff))
+                return NotFound();
+
+            if (order.File?.FileContent == null)
+                return NotFound();
+
+            return File(order.File.FileContent, "application/pdf",
+                order.File.FileName ?? $"order_{orderId}.pdf");
+        }
+
         // === УДАЛЕНИЕ ДОКУМЕНТА ИЗ ЗАКАЗА (ТОЛЬКО ПЕРСОНАЛ) ===
         [HttpPost]
         [Authorize(Roles = "Менеджер,Администратор сайта,Администратор")]
@@ -254,6 +287,47 @@ namespace FranchiseAgregator.Controllers
                 TempData["ErrorMessage"] = $"Ошибка при удалении документа: {ex.Message}";
                 return RedirectToAction("Details", new { id = orderId });
             }
+        }
+        private async Task AttachPdfToOrder(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.Franchise).ThenInclude(f => f.Category)
+                .Include(o => o.Franchise).ThenInclude(f => f.Franchiser)
+                .Include(o => o.OrderStatus)
+                .Include(o => o.Region)
+                .Include(o => o.ContactMethod)
+                .Include(o => o.Client)
+                .Include(o => o.File)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+            if (order == null) return;
+
+            byte[] pdfBytes = _pdfService.GenerateOrderPdf(order);
+            string fileName = $"order_{orderId}.pdf";
+
+            if (order.FileId.HasValue)
+            {
+                var existingFile = await _context.Files.FindAsync(order.FileId.Value);
+                if (existingFile != null)
+                {
+                    existingFile.FileContent = pdfBytes;
+                    existingFile.FileName = fileName;
+                    existingFile.FileUri = null;
+                }
+            }
+            else
+            {
+                var newFile = new DbFile
+                {
+                    FileContent = pdfBytes,
+                    FileName = fileName
+                };
+                _context.Files.Add(newFile);
+                await _context.SaveChangesAsync();
+                order.FileId = newFile.FileId;
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

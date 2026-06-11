@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FranchiseAggregator.Models.Feedback>
+﻿@model IEnumerable<FranchiseAgregator.Models.Feedback>
 @{
     Layout = null;
     ViewData["Title"] = "Управление обратной связью";
@@ -161,7 +161,7 @@
                             <form asp-action="UpdateFeedbackStatus" method="post" class="d-inline">
                                 <input type="hidden" name="id" value="@feedback.Id" />
                                 <select name="feedbackStatusId" class="form-select form-select-sm" onchange="this.form.submit()" style="width: auto; display: inline-block;">
-                                    @foreach (var status in ViewBag.FeedbackStatuses as List<FranchiseAggregator.Models.FeedbackStatus>)
+                                    @foreach (var status in ViewBag.FeedbackStatuses as List<FranchiseAgregator.Models.FeedbackStatus>)
                                     {
                                         <option value="@status.FeedbackStatusId" selected="@(status.FeedbackStatusId == feedback.FeedbackStatusId)">
                                             @status.Name

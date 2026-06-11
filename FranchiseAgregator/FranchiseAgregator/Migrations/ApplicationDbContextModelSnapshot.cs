@@ -17,28 +17,10 @@ namespace FranchiseAgregator.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.5")
+                .HasAnnotation("ProductVersion", "10.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("FeedbackStatus", b =>
-                {
-                    b.Property<int>("FeedbackStatusId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackStatusId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("FeedbackStatusId");
-
-                    b.ToTable("FeedbackStatus");
-                });
 
             modelBuilder.Entity("FranchiseAgregator.Models.Category", b =>
                 {
@@ -82,8 +64,13 @@ namespace FranchiseAgregator.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FileId"));
 
+                    b.Property<byte[]>("FileContent")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FileUri")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FileId");
@@ -129,16 +116,15 @@ namespace FranchiseAgregator.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("FeedbackStatusId")
                         .HasColumnType("int");
 
                     b.Property<string>("Message")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -150,11 +136,34 @@ namespace FranchiseAgregator.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FeedbackStatusId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Feedbacks");
+                });
+
+            modelBuilder.Entity("FranchiseAgregator.Models.FeedbackStatus", b =>
+                {
+                    b.Property<int>("FeedbackStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackStatusId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("FeedbackStatusId");
+
+                    b.ToTable("FeedbackStatuses");
                 });
 
             modelBuilder.Entity("FranchiseAgregator.Models.FranStatus", b =>
@@ -708,13 +717,19 @@ namespace FranchiseAgregator.Migrations
 
             modelBuilder.Entity("FranchiseAgregator.Models.Feedback", b =>
                 {
-                    b.HasOne("FeedbackStatus", "Status")
+                    b.HasOne("FranchiseAgregator.Models.FeedbackStatus", "Status")
                         .WithMany("Feedbacks")
                         .HasForeignKey("FeedbackStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FranchiseAgregator.Models.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Status");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("FranchiseAgregator.Models.Franchise", b =>
@@ -900,11 +915,6 @@ namespace FranchiseAgregator.Migrations
                     b.Navigation("UserStatus");
                 });
 
-            modelBuilder.Entity("FeedbackStatus", b =>
-                {
-                    b.Navigation("Feedbacks");
-                });
-
             modelBuilder.Entity("FranchiseAgregator.Models.Category", b =>
                 {
                     b.Navigation("Franchises");
@@ -918,6 +928,11 @@ namespace FranchiseAgregator.Migrations
             modelBuilder.Entity("FranchiseAgregator.Models.DbFile", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("FranchiseAgregator.Models.FeedbackStatus", b =>
+                {
+                    b.Navigation("Feedbacks");
                 });
 
             modelBuilder.Entity("FranchiseAgregator.Models.FranStatus", b =>

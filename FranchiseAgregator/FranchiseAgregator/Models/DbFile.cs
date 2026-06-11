@@ -8,7 +8,11 @@ namespace FranchiseAgregator.Models
         [Key]
         public int FileId { get; set; }
 
-        public string FileUri { get; set; } = null!;
+        public string? FileUri { get; set; }
+
+        public byte[]? FileContent { get; set; }
+
+        public string? FileName { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
     }

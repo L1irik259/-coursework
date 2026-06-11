@@ -1,7 +1,11 @@
-using System.Text; 
-using Microsoft.AspNetCore.Authentication.Cookies; 
-using Microsoft.EntityFrameworkCore; 
-using FranchiseAgregator.Models; 
+using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
+using FranchiseAgregator.Models;
+using FranchiseAgregator.Services;
+using QuestPDF.Infrastructure;
+
+QuestPDF.Settings.License = LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +45,7 @@ builder.Services.AddAuthorization();
 
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<PdfOrderService>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿@model FranchiseAggregator.Models.News
+﻿@model FranchiseAgregator.Models.News
 @{
     Layout = null;
     ViewData["Title"] = "Добавить новость";
@@ -169,7 +169,7 @@
                     <div class="mb-4">
                         <label class="form-label">Статус</label>
                         <select asp-for="NewsStatusId" class="form-select" style="border-radius: 10px; padding: 0.75rem;">
-                            @foreach (var status in ViewBag.NewsStatuses as List<FranchiseAggregator.Models.NewsStatus>)
+                            @foreach (var status in ViewBag.NewsStatuses as List<FranchiseAgregator.Models.NewsStatus>)
                             {
                                 <option value="@status.NewsStatusId" selected="@(status.NewsStatusId == 4)">
                                     @status.Name

@@ -1,5 +1,5 @@
-﻿@using FranchiseAggregator.Models
-@model FranchiseAggregator.Models.Franchise
+﻿@using FranchiseAgregator.Models
+@model FranchiseAgregator.Models.Franchise
 @{
     Layout = null;
     ViewData["Title"] = Model.Name + " - FranchiseHub";
@@ -435,7 +435,7 @@
 
                     <div class="reviews-wrapper mt-5">
                         <h2 class="section-title text-center mb-5 pb-2">Отзывы покупателей</h2>
-                        @{ var reviews = ViewBag.Reviews as System.Collections.Generic.IEnumerable<FranchiseAggregator.Models.Review>; }
+                        @{ var reviews = ViewBag.Reviews as System.Collections.Generic.IEnumerable<FranchiseAgregator.Models.Review>; }
                         
                         @if (reviews != null && reviews.Any())
                         {

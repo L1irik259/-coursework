@@ -1,0 +1,14 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    platform: linux/arm64/v8
+    environment:
+      ACCEPT_EULA: "1"
+      MSSQL_SA_PASSWORD: "FranchiseHub_Dev_2024!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+volumes:
+  sqlserver_data:
