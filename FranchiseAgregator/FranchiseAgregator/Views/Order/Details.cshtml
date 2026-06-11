@@ -203,47 +203,28 @@
                         {
                             <div class="mb-4">
                                 <div class="info-label">Прикреплённый документ</div>
-                                <div class="p-3 rounded-3" style="background: #f8f9fa; border: 1px solid var(--border);">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="text-truncate" style="max-width: 70%;">
-                                            <i class="bi bi-file-earmark-pdf text-danger me-2 fs-4"></i>
-                                            @if (Model.File.FileContent != null)
-                                            {
-                                                <strong>Документ заявки (PDF)</strong>
-                                                <br>
-                                                <small class="text-muted" style="font-size: 0.8em;">@(Model.File.FileName ?? $"order_{Model.OrderId}.pdf")</small>
-                                            }
-                                            else
-                                            {
-                                                <strong>Ссылка на файл</strong>
-                                                <br>
-                                                <small class="text-muted" style="font-size: 0.8em;">@Model.File.FileUri</small>
-                                            }
-                                        </div>
-                                        <div class="d-flex gap-2">
-                                            @if (Model.File.FileContent != null)
-                                            {
-                                                <a href="/Order/DownloadPdf/@Model.OrderId" class="btn btn-sm btn-success">
-                                                    <i class="bi bi-download"></i> Скачать PDF
-                                                </a>
-                                            }
-                                            else if (!string.IsNullOrEmpty(Model.File.FileUri))
-                                            {
-                                                <a href="@Model.File.FileUri" target="_blank" class="btn btn-sm btn-outline-primary">
-                                                    <i class="bi bi-box-arrow-up-right"></i> Открыть
-                                                </a>
-                                            }
-                                            @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
-                                            {
-                                                <form asp-controller="Order" asp-action="RemoveDocument" method="post" class="d-inline">
-                                                    <input type="hidden" name="orderId" value="@Model.OrderId" />
-                                                    <button type="submit" class="btn btn-sm btn-danger-custom" onclick="return confirm('Удалить документ?');">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </form>
-                                            }
-                                        </div>
-                                    </div>
+                                <div class="d-flex align-items-center gap-2 mt-1">
+                                    @if (Model.File.FileContent != null)
+                                    {
+                                        <a href="/Order/DownloadPdf/@Model.OrderId" class="btn btn-sm btn-success">
+                                            <i class="bi bi-file-earmark-pdf me-1"></i> Скачать PDF
+                                        </a>
+                                    }
+                                    else if (!string.IsNullOrEmpty(Model.File.FileUri))
+                                    {
+                                        <a href="@Model.File.FileUri" target="_blank" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-box-arrow-up-right me-1"></i> Открыть документ
+                                        </a>
+                                    }
+                                    @if (User.IsInRole("Менеджер") || User.IsInRole("Администратор сайта") || User.IsInRole("Администратор"))
+                                    {
+                                        <form asp-controller="Order" asp-action="RemoveDocument" method="post" class="d-inline">
+                                            <input type="hidden" name="orderId" value="@Model.OrderId" />
+                                            <button type="submit" class="btn btn-sm btn-danger-custom" onclick="return confirm('Удалить документ?');">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    }
                                 </div>
                             </div>
                         }
