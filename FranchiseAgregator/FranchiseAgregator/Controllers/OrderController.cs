@@ -238,6 +238,7 @@ namespace FranchiseAgregator.Controllers
 
         // === СКАЧИВАНИЕ PDF-ДОКУМЕНТА ===
         [HttpGet]
+        [Route("Order/DownloadPdf/{orderId}")]
         [Authorize]
         public async Task<IActionResult> DownloadPdf(int orderId)
         {
