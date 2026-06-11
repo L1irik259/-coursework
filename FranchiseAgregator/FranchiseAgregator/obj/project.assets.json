@@ -7006,19 +7006,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/admin/.nuget/packages/": {}
+    "C:\\Users\\miron\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/FranchiseAgregator.csproj",
+      "projectUniqueName": "C:\\Users\\miron\\OneDrive\\Рабочий стол\\cursov_volody\\-coursework\\FranchiseAgregator\\FranchiseAgregator\\FranchiseAgregator.csproj",
       "projectName": "FranchiseAgregator",
-      "projectPath": "/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/FranchiseAgregator.csproj",
-      "packagesPath": "/Users/admin/.nuget/packages/",
-      "outputPath": "/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/obj/",
+      "projectPath": "C:\\Users\\miron\\OneDrive\\Рабочий стол\\cursov_volody\\-coursework\\FranchiseAgregator\\FranchiseAgregator\\FranchiseAgregator.csproj",
+      "packagesPath": "C:\\Users\\miron\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\miron\\OneDrive\\Рабочий стол\\cursov_volody\\-coursework\\FranchiseAgregator\\FranchiseAgregator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/admin/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\miron\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -7108,7 +7108,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.300/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Users\\miron\\AppData\\Local\\Microsoft\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -7531,7 +7531,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "FranchiseAgregator depends on QuestPDF (>= 2024.10.5) but QuestPDF 2024.10.5 was not found. QuestPDF 2024.12.0 was resolved instead.",
+      "message": "FranchiseAgregator зависит от QuestPDF (>= 2024.10.5), но версия QuestPDF 2024.10.5 не найдена. Использовалась версия QuestPDF 2024.12.0.",
       "libraryId": "QuestPDF",
       "targetGraphs": [
         "net10.0"
@@ -7541,7 +7541,7 @@
       "code": "NU1901",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
+      "message": "У пакета \"NuGet.Packaging\" 6.12.1 есть известная уязвимость https://github.com/advisories/GHSA-g4vj-cjjj-v7hg (уровень серьезности: низкий уровень)",
       "libraryId": "NuGet.Packaging",
       "targetGraphs": [
         "net10.0"
@@ -7551,7 +7551,7 @@
       "code": "NU1901",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
+      "message": "У пакета \"NuGet.Protocol\" 6.12.1 есть известная уязвимость https://github.com/advisories/GHSA-g4vj-cjjj-v7hg (уровень серьезности: низкий уровень)",
       "libraryId": "NuGet.Protocol",
       "targetGraphs": [
         "net10.0"

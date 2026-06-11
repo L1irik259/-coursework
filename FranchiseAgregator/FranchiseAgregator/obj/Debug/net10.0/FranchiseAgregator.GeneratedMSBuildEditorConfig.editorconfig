@@ -20,121 +20,121 @@ build_property.TargetFrameworkVersion = v10.0
 build_property.EntryPointFilePath = 
 build_property.RootNamespace = FranchiseAgregator
 build_property.RootNamespace = FranchiseAgregator
-build_property.ProjectDir = /Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/
+build_property.ProjectDir = C:\Users\miron\OneDrive\Рабочий стол\cursov_volody\-coursework\FranchiseAgregator\FranchiseAgregator\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator
+build_property.MSBuildProjectDirectory = C:\Users\miron\OneDrive\Рабочий стол\cursov_volody\-coursework\FranchiseAgregator\FranchiseAgregator
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Account/Profile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Qcm9maWxlLmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Admin/Feedbacks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRmVlZGJhY2tzLmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Admin/Feedbacks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRmVlZGJhY2tzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Admin/Users.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVXNlcnMuY3NodG1s
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Admin/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Catalog/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9JbmRleC5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Catalog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Error/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvSW5kZXguY3NodG1s
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Error/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Favorites/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmF2b3JpdGVzL0luZGV4LmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Favorites/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmF2b3JpdGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Franchise/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRnJhbmNoaXNlL0luZGV4LmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Franchise/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJhbmNoaXNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/About.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BYm91dC5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Contacts.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Db250YWN0cy5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Contacts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/News.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9OZXdzLmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/News.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Promotions.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcm9tb3Rpb25zLmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Home/Promotions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9tb3Rpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/News/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTmV3cy9DcmVhdGUuY3NodG1s
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/News/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/News/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTmV3cy9FZGl0LmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/News/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/News/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTmV3cy9JbmRleC5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Order/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvRGV0YWlscy5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Order/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Order/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvSW5kZXguY3NodG1s
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Order/Management.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvTWFuYWdlbWVudC5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Order/Management.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTWFuYWdlbWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Reviews/Manage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmV2aWV3cy9NYW5hZ2UuY3NodG1s
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Reviews/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3c1xNYW5hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/projects/just/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-vbxrdttovy
+[C:/Users/miron/OneDrive/Рабочий стол/cursov_volody/-coursework/FranchiseAgregator/FranchiseAgregator/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-c9z0ho4ofh
